@@ -1,0 +1,292 @@
+\documentclass{article}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[english]{babel}
+\usepackage{biblatex}
+\usepackage{pifont}
+\usepackage[usestackEOL]{stackengine}
+
+
+\title{\huge\textbf{Master F1 Internship - Bioinformatics}}
+\author{\LARGE Christine Liao}
+\date{\parbox{\linewidth}{\centering%
+  \today \endgraf
+  \bigskip
+  \vspace{10cm}
+  \LARGE Supervisor:\ Dr. Konrad F\"orstner \endgraf
+  Core Unit Systems Medicine\endgraf
+  Julius Maximilian University - W\"urzburg}}
+ 
+
+\begin{document}
+
+\maketitle
+\newpage
+  \pagenumbering{roman}
+  \tableofcontents
+\newpage  
+\pagenumbering{arabic}
+
+
+
+\section{Unix Shell}
+\subsection{Introduction}
+Unix is an operating system (OS) developed in the '60s. An OS is a group of programs which makes the computer work. Each program performs limited function with a unified file system.\\
+\\
+Unix systems also have a graphical user interface (GUI). An interface is a place that allows 2 things to communicate; in this case, human and machine. GUI allows user to communicate with the machine by using visual language. For example, the disk icon indicates that upon clicking, the file will be saved. Another example of graphical operating system is the Microsoft Windows.\\
+\\
+Command line interface (CLI) is another way to communicate with the machine by using commands. The purpose of this F1 internship is to learn the basics of how CLI works in Unix. To do this, Unix shell is used. Unix shell is a command-line interpreter, which allows users to enter commands as text and then executes the operation.\\
+\\
+Unix shell is both command language and a scripting programming language. A shell script is often used to control the operating system. A script is a series of commands that is often used, and can be saved in a text editor. A text editor is a type of computer program the edits plain text. An example of such programs is the "notepad" software. Text editors are part of the operating systems packages, and can be used to change configuration files and programming language source code. In this chapter, nano text editor is used. \\
+\\
+
+
+\subsection{\textbf{Definitions}}
+
+
+\texttt{Shell} ~ language to run other programs using command-line interface instead of GUI.\\
+\\
+\texttt{Command-line interface} ~ uses read-evaluate-print loop (REPL) to interpret when we type a command and press the Enter key: it reads, executes and prints the output\\
+\\
+\texttt{Bash} ~	a default shell.\\
+\\
+\texttt{kernel} ~ core of the computer's operating system, where controls everything. \\
+\\
+\texttt{bin} ~ a folder that stores built-in programs.\\
+\\
+\texttt{temp} ~ a folder that stores temporary files.\\
+\\
+\texttt{flag} ~ adds a marker to file or directory to show what they are.\\
+\\
+\texttt{nano	} ~	text editor for Unix systems, creates only plain character data. You can save text file or commands. \\
+\\
+\texttt{argument} ~	tells the command what to operate on (file or folder).\\
+\\
+\texttt{input file} ~ the first file during an execution command. \\
+\\
+\texttt{output file} ~ the second file during an execution command.\\
+\\
+\texttt{pipe} ~ a vertical line,|, separating two commands, where the output of the command on the left side will be the input for the command on the right side.\\
+\\
+\texttt{loop} ~ a set of commands that allows an operation to be executed repetitively, automatically.\\
+\\
+\texttt{iteration} ~ each time the loop completes the operation is called iteration.\\  
+\\
+\texttt{grep} ~ global/regular expression/print. It is a sequence of operations. It finds and then prints lines in a text that contains the pattern that we are looking for. A pattern can be a word.\\
+\\
+\subsection{\textbf{Symbols}}
+\texttt{\$}~
+a prompt.\\
+\texttt{/}~	root directory when placed in front of file or folder; separator if between names.\\
+\texttt{\~{}} ~	current user's directory.\\
+\texttt{*} ~ wildcard\\
+\texttt{?} ~	 wildcard\\
+\texttt{|} ~	 pipe\\
+\texttt{>} ~ a prompt when writing commands in a loop. This symbol is to show that the commands are not complete yet.  In Shell, it can also mean "to redirect". \\ 
+\texttt{\$} ~ can also assign something to become a variable inside a loop. For example, \$filename means to treat the variable as a variable name and substitute its value in its place, rather than treat it as a text or as a command.\\
+\\
+\subsection{\textbf{Commands}}
+\subsubsection{\small\textsl{How to navigate around UNIX Shell}}
+\texttt{\$ ls} ~ lists content of a directory.\\ 
+\texttt{\$ man ls} ~ lists the manual.\\ 
+\textcolor{red}{\texttt{\$ pwd}} ~ prints working directory.\\
+\textcolor{red}{\texttt{\$ Ctrl-l}} ~ cleans the screen.\\ 
+\textcolor{red}{\texttt{\$ PS1 ='\$ '}} ~ starts the prompt with only \$ sign.\\  
+\textcolor{red}{\texttt{\$ ls -F}}	 ~	adds trailing "/" to the names of directories
+     		it is a "Flag" (option).\\ 
+\textcolor{red}{\texttt{\$ man ls}} ~	to see many other flags (Mac only).\\ 
+\textcolor{red}{\texttt{\$ ls -l}} ~ shows file/directory names, size and time of last modification.\\ 
+\textcolor{red}{\texttt{\$ ls -l-h}} ~ makes file size more readable to 2 digits.\\ 
+\textcolor{red}{\texttt{\$ ls -R	}} ~	lists directories and sub-directories.\\ 
+\textcolor{red}{\texttt{\$ ls -R -t}} ~ directories are sorted by time and last change.\\ 
+\textcolor{red}{\texttt{\$ ls -F}} ~  lists content by showing what kind of file they are.\\
+\textcolor{red}{\texttt{\$ cd Desktop}} ~  	changes directory to Desktop.\\
+\textcolor{red}{\texttt{\$ cd Folder}} ~	changes directory into a folder, subdirectory. \\
+\textcolor{red}{\texttt{\$ cd File}} ~ 	changes directory into a file, sub-subdirectory. \\
+\textcolor{red}{\texttt{\$ cd ..	}} ~	goes one level up of the directory (in the direction of right to left, ie. closer to Home).\\
+\textcolor{red}{\texttt{\$ cd}} ~ returns to home directory. \\
+\textcolor{red}{\texttt{Ctrl+Z} ~ works as esc.\\
+\subsubsection{\small\textsl{How to create, copy and delete}}
+\textcolor{red}{\texttt{\$ mkdir thesis}} ~ creates a directory (folder) called thesis.\\
+\textcolor{red}{\texttt{\$ touch file.txt}} ~	creates a file.\\
+\textcolor{red}{\texttt{\$ nano draft.txt}} ~	creates a file in nano. To exit from Nano back to Unix shell, type Ctrl-X, Y, Enter (Mac).\\
+\textcolor{red}{\texttt{\$ rm draft.txt}} ~ deletes the file PERMANENTLY. There is no trash in UNIX shell.\\
+\textcolor{red}{\texttt{\$ rm -r thesis}} ~ deletes folder and its content PERMANENTLY.\\
+\textcolor{red}{\texttt{\$ mv thesis/draft.txt}} ~	moves the file into a directory.\\
+\textcolor{red}{\texttt{\$ mv thesis/draft.txt thesis/quotes.txt}} ~  file name is changed to quotes.txt. \\
+\textcolor{red}{\texttt{\$ cp fileOne.txt fileTwo.txt}} ~	copies the content of the first file into the second file.\\
+\textcolor{red}{\texttt{\$ mv *.txt}} ~	moves all files ending .txt to original home directory.\\
+\textcolor{red}{\texttt{\$ cp one.txt two.txt. thesis}} ~ copies the two files into a folder called thesis.\\
+\textcolor{red}{\texttt{\$ ls -R -t}} ~ displays directories recursively (lists their sub-directories in  alphabetical order).\\
+\textcolor{red}{\texttt{-t}} ~ lists things by the time of the last change.\\
+\textcolor{red}{\texttt{\$ rm -i}} ~  -i is a flag, for \textit{interactive}, prompts the user whether to proceed with the delete operation.\\
+\subsubsection{\small\textsl{How to count, sort and pipe}}
+\textcolor{red}{\texttt{\$ wc *.pdb}} ~ word counts (number of lines, words, characters in file). \\
+\textcolor{red}{\texttt{\$ p*.pdb}} ~	any file starting with "p" letter that is a pdb file.\\
+\textcolor{red}{\texttt{\$ p?.pdb}} ~ any file that has only letter after "p", eg. pi.pdb.\\
+\textcolor{red}{\texttt{\$ p*.p?*}} ~	 any file starting with "p" and ends with "." or "p" and at least one more character.\\
+\textcolor{red}{\texttt{\$ wc -l*.pdb}} ~	 counts number of lines.\\
+\indent\indent \textcolor{red}{\texttt{-w}} ~	counts number of words.\\ 
+\indent\indent \textcolor{red}{\texttt{-c}} ~	counts number of characters.\\
+\textcolor{red}{\texttt{\$ wc -l *.pdb > file.txt}} ~	 redirect output to a file (because shell cannot print output on the screen) and erase the content of the file.txt. \\
+\textcolor{red}{\texttt{>>}} ~	redirects output to a file by appending to the existing content without erasing it. It's different from ">".\\
+\textcolor{red}{\texttt{\$ cat file.txt}} ~ displays content of the file, all at once.\\
+\textcolor{red}{\texttt{\$ less file.txt}} ~	shows content but stops when screen is full. Go forward with spacebar, b, q. \\
+\textcolor{red}{\texttt{\$ tail -2 animals.txt >> animalsUpd.txt}} ~	adds last two items of the list to the file.\\
+\textcolor{red}{\texttt{\$ sort Letters.txt}} ~  sorts in alphabetical order, without changing original file, shows output on the screen.\\
+\textcolor{red}{\texttt{\$ sort -n number.txt}} ~	sorts in numerical order.\\
+\textcolor{red}{\texttt{\$ sort -n number.txt > sorted-number.txt}} ~ redirects the result to second file.\\
+\textcolor{red}{\texttt{\$ head -n 1 number.txt}} ~ shows the first line of the file on the screen.\\
+\textcolor{red}{\texttt{\$ tail -n 3 number.txt}} ~ shows the last 3 lines of the file on the screen.\\
+\textcolor{red}{\texttt{\$ sort -n length.txt | head -n 1}} ~  executes the left command first, then using that file as input to execute command on the left. Result: it sorts in numberical order, then displays on the screen the first line.\\
+\textcolor{red}{\texttt{\$ wc -l}} ~ 	allows you to enter texts. ctrl-D to finish.\\
+\textcolor{red}{\texttt{\$ uniq}} ~ removes adjacent duplicated lines.\\
+\textcolor{red}{\texttt{\$ cut -d , -f 2 file.txt}} ~ cuts out sections of each line of a file.\\
+\subsubsection{\small\textsl{How to write a loop and Shell script }}
+\texttt{Loop 1}
+\begin{lstlisting}
+$ for filename in document1.txt document2.txt
+>do
+>    head -n 3 $filename
+>done
+\end{lstlisting}
+This is a typical loop structure. The word \texttt{for} is the repeat command. The operation finds the first 3 lines of the file. This loop will do this operation for document 1 and 2. The word \texttt{\$ filename} is just a variable; it could have been any word.\\
+\\
+\textcolor{red}{\texttt{\$ echo}} ~ prints the ouptput on the screen.\\
+\textcolor{red}{\texttt{\$ history | tail -n 5}} ~ shows history of the last 5 commands.\\
+\textcolor{red}{\texttt{\$ history | tail -n 5 > recent.sh}} ~ save the last 5 commands in nano.\\
+\textcolor{red}{\texttt{\$ !123}} ~ enter number of the line you want from history. \\
+\textcolor{red}{\texttt{\$ !!}} ~ shows your last command.\\
+\textcolor{red}{\texttt{\$ !\$}} ~ retrieves last words of the last commands.\\
+\textcolor{red}{\texttt{\$ nano newfile.sh}} ~ creates a new file in text editor nano, which runs within the shell. This is where we write Shell script, then run the script in Unix.\\
+\\
+In nano: \colorbox{LimeGreen}{\texttt{head -n 15 octane.pdb | tail -n 5}} ~ we could also use nano to write a script by typing a command as such. \\
+\\
+\textcolor{red}{\texttt{\$ bash newfile.sh}} ~ it runs the script written in bash.\\
+\\
+In nano: \colorbox{LimeGreen}{\texttt{head -n 15 \$1 | tail -n 5}} ~ has the same result as the above nano script because \textcolor{red}{\texttt{\$1}} means the first filename on the command line. \\
+\\
+In nano: \colorbox{LimeGreen}{\texttt{head -n \$2 \$1}} ~ again \$2 is a position variable, which indicates second command-line argument.\\
+
+\subsubsection{\small\textsl{How to find something in a text }}
+\textcolor{red}{\texttt{\$ grep not document.txt}} ~ finds and prints lines in this document that has the word "not".\\
+\textcolor{red}{\texttt{\$ grep The document.txt}} ~ finds and prints lines that contains the word "The" but also words like "Thesis".\\
+\textcolor{red}{\texttt{\$ grep -w The document.txt}} ~ limits word boundary. It limits the search to only "the" and words like "thesis" will not appear.\\ 
+\textcolor{red}{\texttt{\$ grep -w "is not" document.txt}} ~ finds and prints lines that contains multiple words. \\
+\textcolor{red}{\texttt{\$ grep -n "it" document.txt}} ~ finds and prints lines that contain any words with "it", such as \textbf{it}, w\textbf{it}h.\\
+\textcolor{red}{\texttt{\$ grep -n -w "the" document.txt}}  ~ finds lines that contain "the" and prints also the number of the line where "the" is found.\\
+\textcolor{red}{\texttt{\$ grep -n -w -i "the" document.txt}} ~ the flag \texttt{-i} means case-insensitive.\\
+\textcolor{red}{\texttt{\$ grep -n -w -v "the" document.txt}} ~ where \texttt{-v} is to invert the search, meaning lines that do not contain the word "the".\\
+\textcolor{red}{\texttt{\$ man grep}} ~ manual, shows many other flags of \texttt{grep} (Mac). Use \texttt{q} to exit/esc.\\ 
+\textcolor{red}{\texttt{\$ grep -E "\textasciicircum.o" document.txt}} ~ finds lines that contain an 'o' in the second position, such as t\textbf{o}ner, s\textbf{o}ftware. The \texttt{-E} flag looks for pattern that is called \textbf{regular expression}. We put the pattern in quotation to prevent the shell trying to interpret it. The \texttt{\textasciicircum} finds the match to the start of the line. The . can be any character (just like ? in the shell), and "o" matches the letter "o". \\
+\textcolor{red}{\texttt{\$ find .}} ~ is similar to the command \texttt{ls} in Unix. Again, \texttt{.} means the current working directory, where the search will take place. \texttt{find} will list every file and directory under the current working directory.\\
+\textcolor{red}{\texttt{\$ find . -type d}} ~ finds things that are directories. Here it doesn't list things in any order.\\
+\textcolor{red}{\texttt{\$ find . -type f}} ~ finds all that are files.\\
+\textcolor{red}{\texttt{\$ find . -name *.txt}} ~ find files ends with \texttt{txt} but only those saved in this directory and not in the subdirectories. \\
+\textcolor{red}{\texttt{\$ find. -name '*.txt'}} ~ finds \texttt{txt} files in this directory and the subdirectories. So here \texttt{*} acts as a true wildcard.\\
+ 
+\subsection{\textbf{Shortcuts}}
+\texttt{Tab}	 ~	autocompletion, revisit the most recent commands use. Avoid re-typing a command, saves time.\\
+\texttt{Up\&Down keyboard arrows} ~ show previous commands typed.\\
+\texttt{spacebar} ~	forward one page.\\
+\texttt{b} ~	 backward one page.\\
+\texttt{q} ~	 quit.\\
+\\
+In nano:\\
+\indent
+\texttt{Ctrl+O} ~ "writing out", saves the file. \\
+\indent
+\texttt{Enter, Ctrl+X} ~ to exit nano back to Unix (Mac).\\
+
+\newpage
+\section{Python}
+\subsection{Introdution}
+
+Principles of Python:
+\begin{itemize}
+\item[]Beautiful is better than ugly.
+\item[]Explicit is better than implicit.
+\item[]Simple is better than complex.
+\item[]Complex is better than complicated.
+\item[]Readability counts.
+
+\hfill Excerpts from \textit{Zen of Python} 
+\end{itemize}
+
+Python programming language was created by Guido van Rossum in 1991. Python's minimalist philosophy emphasizes on readability and fun to use, hence the name as a tribute to \textit{Monty Python}. Therefore, code that is hard to understand is \textit{unpythonic}.\\
+\\
+ It is an open source software that uses dynamic typing. In programming languages, a type system is a set of rules that assigns a property called type to the various constructs of a computer program, like variables, expressions, functions or modules. 
+\subsection{\textbf{Definitions}}
+\texttt{Jupyter Notebook} ~ allows python codes to be executed.It can also become committed for version control repositories like github. Markdown can be used to generate a notebook environment for writing and developing code. \\
+\\
+\texttt{interger} ~ 
+\texttt{float} ~
+\texttt{variables} ~ are numbers which are stored for later use. \\
+\\
+\texttt{Boolean} ~ is a data type that can either be true or false, intended to represent the two truth values of logic. \\
+\\
+\texttt{data type} ~ can be numbers and Booleans.\\
+\\
+\subsection{\textbf{Symbols}}
+\texttt{In [~]} ~ means number of input, for tracking purpose.//
+
+
+\subsection{\textbf{Shortcuts}}
+In Jupyter notebook:\\
+\indent{\texttt{A} ~ inserts a new cell above the current cell.}\\ 
+\indent{\texttt{B} ~ inserts a new cell below.}\\
+\indent{\texttt{Ctrl-Enter} ~ runs the cells.}\\
+\indent{\texttt{M} ~ changes the current cell to Markdown.}\\
+\indent{\texttt{Y} changes Markdown back to code mode.\\
+\indent{\texttt{D+D} (pressing the key twice) deletes the current cell.\\
+
+\subsection{Commands}
+From Unix shell terminal, type:\\
+\texttt{jupyter notebook} ~ this launches the notebook.\\
+\\
+The following commands are taken place in Jupyter Notebook, where In[~] means number of the input:\\
+\\
+In [1]: \fbox{\parbox{120}{%
+\texttt{print ("hello world")}
+}}\\
+prints \texttt{hello world} as the output.\\
+\\
+In [2]: \fbox{\parbox{120}{%
+\texttt{my\_variable=10}\\
+\texttt{print (my\_variable)}
+}}\\
+output will be 10. Variables are numbers which are stored for later use.\\
+\\
+In [3]: \fbox{\parbox{120}{% 
+\texttt{my\_int = 7}\\
+\texttt{my\_float = 1.23}\\
+\texttt{my\_bool = True}\\
+\\
+\texttt{print (my\_int)}\\
+\texttt{print (my\_float)}\\
+\texttt{print (my\_bool)}
+}}\\
+Output: 7, 1.23, True.\\ 
+\\
+In [4]: \fbox{\parbox{120}{%
+\texttt{my\_int = 3}
+}}\\
+when retyping a variable, it will get reassigned to the new value, in this case 3. \\
+
+
+
+
+\newpage
+\section{References}
+\begin{document}
+
+
+https://en.wikipedia.org/w/index.php?title=Type\_system\&oldid=849096813 
+\end{document}
+
+
+hello ~ ~ ~ ~ world
+\end{document}
