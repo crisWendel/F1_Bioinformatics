@@ -104,9 +104,9 @@ a prompt.\\
 \texttt{\$ ls -R	} ~	lists directories and sub-directories.\\ 
 \texttt{\$ ls -R -t} ~ directories are sorted by time and last change.\\ 
 \texttt{\$ ls -F} ~  lists content by showing what kind of file they are.\\
-\texttt{\$ cd Desktop} ~  	changes directory to Desktop.\\
+\texttt{\$ cd Desktop} ~  changes directory to Desktop.\\
 \texttt{\$ cd Folder} ~	changes directory into a folder, subdirectory. \\
-\texttt{\$ cd File} ~ 	changes directory into a file, sub-subdirectory. \\
+\texttt{\$ cd File} ~ changes directory into a file, sub-subdirectory. \\
 \texttt{\$ cd ..	} ~	goes one level up of the directory (in the direction of right to left, ie. closer to Home).\\
 \texttt{\$ cd}} ~ returns to home directory. \\
 
@@ -390,6 +390,7 @@ In other words, SSH uses public-key cryptography to authenticate  the remote com
 \texttt{\$ ls} ~ you should see id\_rsa and id\_rsa.pub as listed.\\
 7 - type:
 \texttt{\$cat *} ~ it will list the content of Private key and and the public key.\\ 
+\\
 \includegraphics[scale=0.5]{private_key}\\
 
 
@@ -399,19 +400,51 @@ Git is a version control system for tracking changes in my source code history. 
 \\
 Once uploaded onto Github, the file can be edited by selected collaborators, creating a collaboration platform among multiple users. \\
 \\
-To set up GitHub, first step is to sign up for an account on GitHub.com. Then install Git on local computer. Github won't work if Git is not installed. Git uses the Terminal to access it. 
-
-\section{Definitions}
+Git thinks of its data like a series of snapshots of a miniature filesystem. Every time we commit, Git takes a picture of the file at that moment, and stores that snapshot. If the file is not further modified, Git doesn't store the file again, just a link to the previous identical file it has stored. Git thinks of its data like a \textbf{stream of snapshots}.\\
+\\
+Git has three main states that the file can reside in: \textit{committed, modified,} and \textit{staged}:
+\begin{itemize}
+  \item committed means that the data is stored in my local database.
+  \item modified means that I have changed the file but have not committed it to my database yet.
+  \item staged means that you have marked a modified file in its current version to go into the next commit snapshot. 
+\end{itemize}
+\\
+This leads to the three main sections of a Git project: the Git directory, the working tree, and the staging area.\\
+\includegraphics[scale=0.3]{git_3sections}\\
+\begin{itemize}
+  \item Git directory is where Git stores the metadata and object database of my project. This is the most important part of Git, and it is what is copied when I \textit{clone} a repository from another computer.
+  \item working tree is a single checkout of one version of the project. These files are pulled out of the compressed database in the Git directory and placed on disk so I could modify or continue to work on. 
+  \item staging area is a file, generally contained in the Git directory, that stores information about what will go into my next commit. 
+\end{itemize}
+\\
+The basic Git workflow goes as follows:
+\begin{enumerate}
+  \item I modify files in the working tree.
+  \item I selectively stage just those changes I want to be part of the next commit, which adds only those changes to the staging area.
+  \item I commit, which takes the files as they are in the staging area and stores that snapshot permanently to the Git directory. 
+\end{enumerate}
+\\
+Therefore, if a version of file is in the Git directory, it is committed. If it was modified and added to the staging area, it is staged. And if it was changed since it was checked out but has not been staged, it is modified. \\
+\\
+The lifecycle of the stutus of a file looks like this:\\
+\includegraphics[scale=0.4]{git_lifecycle}\\
+Git directory is created by \texttt{\$git init}, and it is folder that contains all the informations needed for git to work. The \texttt{. git} directory looks like this:\\
+\includegraphics[scale=0.5]{git_directory}\\
+\\
+Once
+\To set up GitHub, first step is to sign up for an account on GitHub.com. Then install Git on local computer. Github won't work if Git is not installed. Git uses the Terminal to access it. \\ 
+\subsection{Definitions}
 \texttt{version control} ~ means it keeps "snapshots" of every point in time in the project's history, without being overwritten, as whenever we save in Microsoft Word file.\\
 \\
-\texttt{repo (for repository)} ~ is a directory or storage space where your projects can be. It can be local to a folder on my computer, or it can be a storage space on GitHub or another server. Files like codes, text files, image files, etc, can be stored in a repository. \\
+\texttt{repo (for repository)} ~ is a virtual storage space of my project. \\
 \\
-\texttt{commit} ~ this command gives Git its power. When I commit, I am taking a "snapshot" of my repository at that point in time.\\
+\texttt{commit} ~  saves the state of the project, taking a "snapshot" of the repo at a point in time.\\
 \\
 \texttt{branch} ~ this allows multiple collaborators working on a project at the same time without Git getting them confused. There is a hierarchy: the main version is called the "master"; each user "branch off" to work on their own versions. Once it's done, the sub-branches "merge" with the "master". \\
 
 
-\section{Adding a new SSH key to Github}
+\subsection{Adding a new SSH key to Github}
+This step allows a secure and hussle-free authentication process whenever we connect to Github. 
 1 - From the Terminal:\\
 \texttt{\$ pbcopy < ~/.ssh/id\_rsa.pub} ~ copies the content of the SSH public key to the clipboard. \\
 2 - From the github website, click "your profile photo", then click \textbf{Settings}.\\
@@ -420,25 +453,57 @@ To set up GitHub, first step is to sign up for an account on GitHub.com. Then in
 5 - Paste the key into the "Key" field.\\
 6 - Click \textbf{Add SSH key}.\\
 
-\section{Commands}
-\subsubsection{To configure Git}
-1 - \texttt{git config --global user.name "Your Name Here"} \\
-2 - \texttt{git config --global user.email "Youraddress@mail.com}\\
+\subsection{Commands}
+\subsubsection{How to configure Git}
 
-\subsubsection{How to add, commit and push}
-\texttt{\$ git init} ~ initializes a new Git repository. \\
-\texttt{\$ git config} ~ configures Git for the first time.\\ 
-\texttt{\$ git help} ~ shows common git commands. \\
-\texttt{\$ git status} ~ checks the status of the repo. See which files are inside it, which changes still need to be committed, which branch of the repo I am currently working on. \\
-\texttt{\$ git add} ~ brings new files to Git's attention. After adding a file, it is included in Git's "snapshots" of the repo.\\
-\texttt{git commit -m} ~ is the most important command. It takes a "snapshot" of the repo. The command \texttt{git commit -m } usually is followed by "description", meaning what changes were made. \\
-\texttt{git push} ~ this makes my commits visible online on Github. I "push" the changes up to GitHub. \\
+1 - Install Git (Xcode Command Line Tool for Mac). \\
+From the Terminal:\\
+2 - \texttt{\$ git --version} ~ checks if git is present.\\
+3 - \texttt{git config --global user.name "Your Name Here"} \\
+4 - \texttt{git config --global user.email "YourAddress@mail.com}\\
 
-\section{Creating a repo}
+\subsubsection{How to create and save a repo}
+
 1 - Login to Github account, click on the \texttt{+} sign on the right top menu, select \texttt{New repository}.\\
 2 - Give the repo a short, memorable name plus description. \\
-3 - Select for public or private viewing. 
+3 - Select for public or private viewing.\\ 
 4 - Click \texttt{Create repository} ~ now we have created an online space for my project to live in. \\
+5 - Click \texttt{Clone or download} ~ so far, we have created a \textit{remote} repository. By cloning the repository, this creates a \textit{local} copy on my computer and sync between the two locations.\\
+6 - Choose \texttt{Clone with SSH} and click the icon to copy the clone URL for the repository.\\
+On my computer:\\
+7 - Place the file to be pushed together with .git in the same folder.\\
+From the Terminal:\\
+8 - \texttt{\$ git init} ~ initializes a new Git repository. This is a one-time command during initial setup of a new repo.\\
+9 - \texttt{\$ git clone} ~ and paste the URL copied from the clone and press Enter. For example: \\
+\\
+\includegraphics[scale=0.5]{git_clone}\\
+\\
+10 - \texttt{\$ git add F1.tex} ~ F1.tex is an example of files in LaTex. This command brings a new file to Git's attention. After adding a file, it is included in Git's "snapshots" of the repo.\\
+11 - \texttt{\$ git commit -m} ~ is the most important command. It takes a "snapshot" of the repo. This command is followed by "description", meaning what changes were made. For example: \\
+\\
+\includegraphics[scale=0.5]{git_commit}\\
+\\
+12 - \texttt{\$ git push} ~ this makes my commits visible online on Github. I "push" the changes up to GitHub. \\
+\\
+\includegraphics[scale=0.5]{git_push}\\
+\\
+Now the file F1.tex is stored in Github.
+
+\subsubsection{Viewing staged and unstaged changes}
+\texttt{\$ git status} ~ tells us if the file is committed or not. For example:\\
+\includegraphics[scale=0.5]{git_status}\\
+"Changes not staged for commit" means that this file has been modified in the working directory but not yet staged. (To stage it, we need to run \texttt{\$ git add}, which begins to track new files, to stage files. \\
+If we run \texttt{\$ git add}, the message will be "Changes to be committed". Now the file is staged and ready to be committed.\\ 
+Note: Suppose I make some changes at this point, and then run \texttt{\$ git status}. I will get both messages: "Changes to be committed" and "Changes not staged for commit". If I commit now, Git will save the version when I ran \texttt{\$ git add}, but not the modifications I did after that. So the next step is to run again \texttt{\$ git add} to stage the latest version of the file.\\
+\\
+\texttt{\$ git diff} ~ very detail description of which modifications were made that are still unstaged. If the changes were staged (\texttt{\$ git add}) then, \texttt{git diff} will not give any output. \\
+\\
+\texttt{\$ git log} ~ lists the author that 
+
+\subsubsection{others}
+\texttt{\$ git help} ~ shows common git commands. \\
+\texttt{\$ git rm} ~ removes a file from Git by removing it from the staging area, and then commit. It also removes the file from the working directory, so it doesn't appear as an untracked file. 
+
 
 \newpage
 \section{Exercises}
