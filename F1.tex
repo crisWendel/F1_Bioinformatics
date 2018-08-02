@@ -8,6 +8,8 @@
 \usepackage{biblatex}
 \usepackage{pifont}
 \usepackage[usestackEOL]{stackengine}
+\usepackage{lmodern}
+
 
 
 \title{\huge\textbf{Master F1 Internship - Bioinformatics}}
@@ -33,7 +35,7 @@
 
 
 \section{Unix Shell}
-\subsection{Introduction}
+
 Unix is an operating system (OS) developed in the '60s. An OS is a group of programs which makes the computer work. Each program performs limited function with a unified file system.\\
 \\
 Unix systems also have a graphical user interface (GUI). An interface is a place that allows 2 things to communicate; in this case, human and machine. GUI allows user to communicate with the machine by using visual language. For example, the disk icon indicates that upon clicking, the file will be saved. Another example of graphical operating system is the Microsoft Windows.\\
@@ -42,16 +44,16 @@ Command line interface (CLI) is another way to communicate with the machine by u
 \\
 Unix shell is both command language and a scripting programming language. A shell script is often used to control the operating system. A script is a series of commands that is often used, and can be saved in a text editor. A text editor is a type of computer program the edits plain text. An example of such programs is the "notepad" software. Text editors are part of the operating systems packages, and can be used to change configuration files and programming language source code. In this chapter, nano text editor is used. \\
 \\
-
+The terminal emulator (or simply the terminal) is just the window that opens up and the shell is the program that runs behind to interpret the commands typed in the window. 
 
 \subsection{\textbf{Definitions}}
 
 
-\texttt{Shell} ~ language to run other programs using command-line interface instead of GUI.\\
+\texttt{shell} ~ language to run other programs using command-line interface instead of GUI.\\
 \\
-\texttt{Command-line interface} ~ uses read-evaluate-print loop (REPL) to interpret when we type a command and press the Enter key: it reads, executes and prints the output\\
+\texttt{command-line interface} ~ uses read-evaluate-print loop (REPL) to interpret when we type a command and press the Enter key: it reads, executes and prints the output\\
 \\
-\texttt{Bash} ~	a default shell.\\
+\texttt{bash} ~	a default shell.\\
 \\
 \texttt{kernel} ~ core of the computer's operating system, where controls everything. \\
 \\
@@ -89,63 +91,64 @@ a prompt.\\
 \texttt{\$} ~ can also assign something to become a variable inside a loop. For example, \$filename means to treat the variable as a variable name and substitute its value in its place, rather than treat it as a text or as a command.\\
 \\
 \subsection{\textbf{Commands}}
-\subsubsection{\small\textsl{How to navigate around UNIX Shell}}
+\subsubsection{\small\textsl{How to navigate around shell}}
 \texttt{\$ ls} ~ lists content of a directory.\\ 
 \texttt{\$ man ls} ~ lists the manual.\\ 
-\textcolor{red}{\texttt{\$ pwd}} ~ prints working directory.\\
-\textcolor{red}{\texttt{\$ Ctrl-l}} ~ cleans the screen.\\ 
-\textcolor{red}{\texttt{\$ PS1 ='\$ '}} ~ starts the prompt with only \$ sign.\\  
-\textcolor{red}{\texttt{\$ ls -F}}	 ~	adds trailing "/" to the names of directories
-     		it is a "Flag" (option).\\ 
-\textcolor{red}{\texttt{\$ man ls}} ~	to see many other flags (Mac only).\\ 
-\textcolor{red}{\texttt{\$ ls -l}} ~ shows file/directory names, size and time of last modification.\\ 
-\textcolor{red}{\texttt{\$ ls -l-h}} ~ makes file size more readable to 2 digits.\\ 
-\textcolor{red}{\texttt{\$ ls -R	}} ~	lists directories and sub-directories.\\ 
-\textcolor{red}{\texttt{\$ ls -R -t}} ~ directories are sorted by time and last change.\\ 
-\textcolor{red}{\texttt{\$ ls -F}} ~  lists content by showing what kind of file they are.\\
-\textcolor{red}{\texttt{\$ cd Desktop}} ~  	changes directory to Desktop.\\
-\textcolor{red}{\texttt{\$ cd Folder}} ~	changes directory into a folder, subdirectory. \\
-\textcolor{red}{\texttt{\$ cd File}} ~ 	changes directory into a file, sub-subdirectory. \\
-\textcolor{red}{\texttt{\$ cd ..	}} ~	goes one level up of the directory (in the direction of right to left, ie. closer to Home).\\
-\textcolor{red}{\texttt{\$ cd}} ~ returns to home directory. \\
-\textcolor{red}{\texttt{Ctrl+Z} ~ works as esc.\\
+\texttt{\$ pwd}} ~ prints working directory.\\
+\texttt{\$ Ctrl-l} ~ cleans the screen.\\ 
+\texttt{\$ PS1 ='\$ '}} ~ starts the prompt with only \$ sign.\\  
+\texttt{\$ ls -F}	 ~	adds trailing "/" to the names of directories. It is a "Flag" (option).\\ 
+\texttt{\$ man ls} ~	to see many other flags (Mac only).\\ 
+\texttt{\$ ls -l} ~ shows file/directory names, size and time of last modification.\\ 
+\texttt{\$ ls -l-h} ~ makes file size more readable to 2 digits.\\ 
+\texttt{\$ ls -R	} ~	lists directories and sub-directories.\\ 
+\texttt{\$ ls -R -t} ~ directories are sorted by time and last change.\\ 
+\texttt{\$ ls -F} ~  lists content by showing what kind of file they are.\\
+\texttt{\$ cd Desktop} ~  	changes directory to Desktop.\\
+\texttt{\$ cd Folder} ~	changes directory into a folder, subdirectory. \\
+\texttt{\$ cd File} ~ 	changes directory into a file, sub-subdirectory. \\
+\texttt{\$ cd ..	} ~	goes one level up of the directory (in the direction of right to left, ie. closer to Home).\\
+\texttt{\$ cd}} ~ returns to home directory. \\
+
+
 \subsubsection{\small\textsl{How to create, copy and delete}}
-\textcolor{red}{\texttt{\$ mkdir thesis}} ~ creates a directory (folder) called thesis.\\
-\textcolor{red}{\texttt{\$ touch file.txt}} ~	creates a file.\\
-\textcolor{red}{\texttt{\$ nano draft.txt}} ~	creates a file in nano. To exit from Nano back to Unix shell, type Ctrl-X, Y, Enter (Mac).\\
-\textcolor{red}{\texttt{\$ rm draft.txt}} ~ deletes the file PERMANENTLY. There is no trash in UNIX shell.\\
-\textcolor{red}{\texttt{\$ rm -r thesis}} ~ deletes folder and its content PERMANENTLY.\\
-\textcolor{red}{\texttt{\$ mv thesis/draft.txt}} ~	moves the file into a directory.\\
-\textcolor{red}{\texttt{\$ mv thesis/draft.txt thesis/quotes.txt}} ~  file name is changed to quotes.txt. \\
-\textcolor{red}{\texttt{\$ cp fileOne.txt fileTwo.txt}} ~	copies the content of the first file into the second file.\\
-\textcolor{red}{\texttt{\$ mv *.txt}} ~	moves all files ending .txt to original home directory.\\
-\textcolor{red}{\texttt{\$ cp one.txt two.txt. thesis}} ~ copies the two files into a folder called thesis.\\
-\textcolor{red}{\texttt{\$ ls -R -t}} ~ displays directories recursively (lists their sub-directories in  alphabetical order).\\
-\textcolor{red}{\texttt{-t}} ~ lists things by the time of the last change.\\
-\textcolor{red}{\texttt{\$ rm -i}} ~  -i is a flag, for \textit{interactive}, prompts the user whether to proceed with the delete operation.\\
+\texttt{\$ mkdir thesis} ~ creates a directory (folder) called thesis.\\
+\texttt{\$ touch file.txt} ~	creates a file.\\
+\texttt{\$ nano draft.txt} ~	creates a file in nano. To exit from Nano back to Unix shell, type Ctrl-X, Y, Enter (Mac).\\
+\texttt{\$ rm draft.txt} ~ deletes the file PERMANENTLY. There is no trash in UNIX shell.\\
+\texttt{\$ rm -r thesis} ~ deletes folder and its content PERMANENTLY.\\
+\texttt{\$ mv thesis/draft.txt} ~	moves the file into a directory.\\
+\texttt{\$ mv thesis/draft.txt thesis/quotes.txt} ~  file name is changed to quotes.txt. \\
+\texttt{\$ cp fileOne.txt fileTwo.txt} ~	copies the content of the first file into the second file.\\
+\texttt{\$ mv *.txt} ~	moves all files ending .txt to original home directory.\\
+\texttt{\$ cp one.txt two.txt. thesis} ~ copies the two files into a folder called thesis.\\
+\texttt{\$ ls -R -t} ~ displays directories recursively (lists their sub-directories in  alphabetical order).\\
+\texttt{-t} ~ lists things by the time of the last change.\\
+\texttt{\$ rm -i} ~  -i is a flag, for \textit{interactive}, prompts the user whether to proceed with the delete operation.\\
+
 \subsubsection{\small\textsl{How to count, sort and pipe}}
-\textcolor{red}{\texttt{\$ wc *.pdb}} ~ word counts (number of lines, words, characters in file). \\
-\textcolor{red}{\texttt{\$ p*.pdb}} ~	any file starting with "p" letter that is a pdb file.\\
-\textcolor{red}{\texttt{\$ p?.pdb}} ~ any file that has only letter after "p", eg. pi.pdb.\\
-\textcolor{red}{\texttt{\$ p*.p?*}} ~	 any file starting with "p" and ends with "." or "p" and at least one more character.\\
-\textcolor{red}{\texttt{\$ wc -l*.pdb}} ~	 counts number of lines.\\
-\indent\indent \textcolor{red}{\texttt{-w}} ~	counts number of words.\\ 
-\indent\indent \textcolor{red}{\texttt{-c}} ~	counts number of characters.\\
-\textcolor{red}{\texttt{\$ wc -l *.pdb > file.txt}} ~	 redirect output to a file (because shell cannot print output on the screen) and erase the content of the file.txt. \\
-\textcolor{red}{\texttt{>>}} ~	redirects output to a file by appending to the existing content without erasing it. It's different from ">".\\
-\textcolor{red}{\texttt{\$ cat file.txt}} ~ displays content of the file, all at once.\\
-\textcolor{red}{\texttt{\$ less file.txt}} ~	shows content but stops when screen is full. Go forward with spacebar, b, q. \\
-\textcolor{red}{\texttt{\$ tail -2 animals.txt >> animalsUpd.txt}} ~	adds last two items of the list to the file.\\
-\textcolor{red}{\texttt{\$ sort Letters.txt}} ~  sorts in alphabetical order, without changing original file, shows output on the screen.\\
-\textcolor{red}{\texttt{\$ sort -n number.txt}} ~	sorts in numerical order.\\
-\textcolor{red}{\texttt{\$ sort -n number.txt > sorted-number.txt}} ~ redirects the result to second file.\\
-\textcolor{red}{\texttt{\$ head -n 1 number.txt}} ~ shows the first line of the file on the screen.\\
-\textcolor{red}{\texttt{\$ tail -n 3 number.txt}} ~ shows the last 3 lines of the file on the screen.\\
-\textcolor{red}{\texttt{\$ sort -n length.txt | head -n 1}} ~  executes the left command first, then using that file as input to execute command on the left. Result: it sorts in numberical order, then displays on the screen the first line.\\
-\textcolor{red}{\texttt{\$ wc -l}} ~ 	allows you to enter texts. ctrl-D to finish.\\
-\textcolor{red}{\texttt{\$ uniq}} ~ removes adjacent duplicated lines.\\
-\textcolor{red}{\texttt{\$ cut -d , -f 2 file.txt}} ~ cuts out sections of each line of a file.\\
-\subsubsection{\small\textsl{How to write a loop and Shell script }}
+\texttt{\$ wc *.pdb} ~ word counts (number of lines, words, characters in file). \\
+\texttt{\$ p*.pdb} ~	any file starting with "p" letter that is a pdb file.\\
+\texttt{\$ p?.pdb} ~ any file that has only letter after "p", eg. pi.pdb.\\
+\texttt{\$ p*.p?*} ~	 any file starting with "p" and ends with "." or "p" and at least one more character.\\
+\texttt{\$ wc -l*.pdb} ~	 counts number of lines.\\
+\indent\indent \texttt{-w} ~	counts number of words.\\ 
+\indent\indent \texttt{-c} ~	counts number of characters.\\
+\texttt{\$ wc -l *.pdb > file.txt} ~	 redirect output to a file (because shell cannot print output on the screen) and erase the content of the file.txt. \\
+\texttt{>>} ~	redirects output to a file by appending to the existing content without erasing it. It's different from ">".\\
+\texttt{\$ cat file.txt} ~ displays content of the file, all at once.\\
+\texttt{\$ less file.txt} ~	shows content but stops when screen is full. Go forward with spacebar, b, q. \\
+\texttt{\$ tail -2 animals.txt >> animalsUpd.txt} ~	adds last two items of the list to the file.\\
+\texttt{\$ sort Letters.txt} ~  sorts in alphabetical order, without changing original file, shows output on the screen.\\
+\texttt{\$ sort -n number.txt} ~	sorts in numerical order.\\
+\texttt{\$ sort -n number.txt > sorted-number.txt} ~ redirects the result to second file.\\
+\texttt{\$ head -n 1 number.txt} ~ shows the first line of the file on the screen.\\
+\texttt{\$ tail -n 3 number.txt} ~ shows the last 3 lines of the file on the screen.\\
+\texttt{\$ sort -n length.txt | head -n 1} ~  executes the left command first, then using that file as input to execute command on the left. Result: it sorts in numberical order, then displays on the screen the first line.\\
+\texttt{\$ wc -l} ~ 	allows you to enter texts. ctrl-D to finish.\\
+\texttt{\$ uniq} ~ removes adjacent duplicated lines.\\
+\texttt{\$ cut -d , -f 2 file.txt} ~ cuts out sections of each line of a file.\\
+\subsubsection{\small\textsl{How to write a loop and shell scripts }}
 \texttt{Loop 1}
 \begin{lstlisting}
 $ for filename in document1.txt document2.txt
@@ -155,40 +158,47 @@ $ for filename in document1.txt document2.txt
 \end{lstlisting}
 This is a typical loop structure. The word \texttt{for} is the repeat command. The operation finds the first 3 lines of the file. This loop will do this operation for document 1 and 2. The word \texttt{\$ filename} is just a variable; it could have been any word.\\
 \\
-\textcolor{red}{\texttt{\$ echo}} ~ prints the ouptput on the screen.\\
-\textcolor{red}{\texttt{\$ history | tail -n 5}} ~ shows history of the last 5 commands.\\
-\textcolor{red}{\texttt{\$ history | tail -n 5 > recent.sh}} ~ save the last 5 commands in nano.\\
-\textcolor{red}{\texttt{\$ !123}} ~ enter number of the line you want from history. \\
-\textcolor{red}{\texttt{\$ !!}} ~ shows your last command.\\
-\textcolor{red}{\texttt{\$ !\$}} ~ retrieves last words of the last commands.\\
-\textcolor{red}{\texttt{\$ nano newfile.sh}} ~ creates a new file in text editor nano, which runs within the shell. This is where we write Shell script, then run the script in Unix.\\
+\texttt{\$ echo} ~ prints the ouptput on the screen.\\
+\texttt{\$ history | tail -n 5} ~ shows history of the last 5 commands.\\
+\texttt{\$ history | tail -n 5 > recent.sh} ~ save the last 5 commands in nano.\\
+\texttt{\$ !123} ~ enter number of the line you want from history. \\
+\texttt{\$ !!} ~ shows your last command.\\
+\texttt{\$ !\$} ~ retrieves last words of the last commands.\\
+\texttt{\$ nano newfile.sh} ~ creates a new file in text editor nano, which runs within the shell. This is where we write Shell script, then run the script in Unix.\\
 \\
-In nano: \colorbox{LimeGreen}{\texttt{head -n 15 octane.pdb | tail -n 5}} ~ we could also use nano to write a script by typing a command as such. \\
+In nano:\\ 
+\indent\texttt{head -n 15 octane.pdb | tail -n 5}\\
+\indent we could also use nano to write a script by typing a command as such. \\
 \\
-\textcolor{red}{\texttt{\$ bash newfile.sh}} ~ it runs the script written in bash.\\
+\texttt{\$ bash newfile.sh} ~ it runs the script written in bash.\\
 \\
-In nano: \colorbox{LimeGreen}{\texttt{head -n 15 \$1 | tail -n 5}} ~ has the same result as the above nano script because \textcolor{red}{\texttt{\$1}} means the first filename on the command line. \\
+In nano:\\
+\indent\texttt{head -n 15 \$1 | tail -n 5}\\
+\indent this has the same result as the above nano script because \texttt{\$1} means the first filename on the command line. \\
 \\
-In nano: \colorbox{LimeGreen}{\texttt{head -n \$2 \$1}} ~ again \$2 is a position variable, which indicates second command-line argument.\\
+In nano:\\
+\indent \texttt{head -n \$2 \$1}\\
+\indent again \$2 is a position variable, which indicates second command-line argument.\\
 
 \subsubsection{\small\textsl{How to find something in a text }}
-\textcolor{red}{\texttt{\$ grep not document.txt}} ~ finds and prints lines in this document that has the word "not".\\
-\textcolor{red}{\texttt{\$ grep The document.txt}} ~ finds and prints lines that contains the word "The" but also words like "Thesis".\\
-\textcolor{red}{\texttt{\$ grep -w The document.txt}} ~ limits word boundary. It limits the search to only "the" and words like "thesis" will not appear.\\ 
-\textcolor{red}{\texttt{\$ grep -w "is not" document.txt}} ~ finds and prints lines that contains multiple words. \\
-\textcolor{red}{\texttt{\$ grep -n "it" document.txt}} ~ finds and prints lines that contain any words with "it", such as \textbf{it}, w\textbf{it}h.\\
-\textcolor{red}{\texttt{\$ grep -n -w "the" document.txt}}  ~ finds lines that contain "the" and prints also the number of the line where "the" is found.\\
-\textcolor{red}{\texttt{\$ grep -n -w -i "the" document.txt}} ~ the flag \texttt{-i} means case-insensitive.\\
-\textcolor{red}{\texttt{\$ grep -n -w -v "the" document.txt}} ~ where \texttt{-v} is to invert the search, meaning lines that do not contain the word "the".\\
-\textcolor{red}{\texttt{\$ man grep}} ~ manual, shows many other flags of \texttt{grep} (Mac). Use \texttt{q} to exit/esc.\\ 
-\textcolor{red}{\texttt{\$ grep -E "\textasciicircum.o" document.txt}} ~ finds lines that contain an 'o' in the second position, such as t\textbf{o}ner, s\textbf{o}ftware. The \texttt{-E} flag looks for pattern that is called \textbf{regular expression}. We put the pattern in quotation to prevent the shell trying to interpret it. The \texttt{\textasciicircum} finds the match to the start of the line. The . can be any character (just like ? in the shell), and "o" matches the letter "o". \\
-\textcolor{red}{\texttt{\$ find .}} ~ is similar to the command \texttt{ls} in Unix. Again, \texttt{.} means the current working directory, where the search will take place. \texttt{find} will list every file and directory under the current working directory.\\
-\textcolor{red}{\texttt{\$ find . -type d}} ~ finds things that are directories. Here it doesn't list things in any order.\\
-\textcolor{red}{\texttt{\$ find . -type f}} ~ finds all that are files.\\
-\textcolor{red}{\texttt{\$ find . -name *.txt}} ~ find files ends with \texttt{txt} but only those saved in this directory and not in the subdirectories. \\
-\textcolor{red}{\texttt{\$ find. -name '*.txt'}} ~ finds \texttt{txt} files in this directory and the subdirectories. So here \texttt{*} acts as a true wildcard.\\
+\texttt{\$ grep not document.txt} ~ finds and prints lines in this document that has the word "not".\\
+\texttt{\$ grep The document.txt} ~ finds and prints lines that contains the word "The" but also words like "Thesis".\\
+\texttt{\$ grep -w The document.txt} ~ limits word boundary. It limits the search to only "the" and words like "thesis" will not appear.\\ 
+\texttt{\$ grep -w "is not" document.txt} ~ finds and prints lines that contains multiple words. \\
+\texttt{\$ grep -n "it" document.txt} ~ finds and prints lines that contain any words with "it", such as \textbf{it}, w\textbf{it}h.\\
+\texttt{\$ grep -n -w "the" document.txt}  ~ finds lines that contain "the" and prints also the number of the line where "the" is found.\\
+\texttt{\$ grep -n -w -i "the" document.txt} ~ the flag \texttt{-i} means case-insensitive.\\
+\texttt{\$ grep -n -w -v "the" document.txt} ~ where \texttt{-v} is to invert the search, meaning lines that do not contain the word "the".\\
+\texttt{\$ man grep} ~ manual, shows many other flags of \texttt{grep} (Mac). Use \texttt{q} to exit/esc.\\ 
+\texttt{\$ grep -E "\textasciicircum.o" document.txt} ~ finds lines that contain an 'o' in the second position, such as t\textbf{o}ner, s\textbf{o}ftware. The \texttt{-E} flag looks for pattern that is called \textbf{regular expression}. We put the pattern in quotation to prevent the shell trying to interpret it. The \texttt{\textasciicircum} finds the match to the start of the line. The . can be any character (just like ? in the shell), and "o" matches the letter "o". \\
+\texttt{\$ find .} ~ is similar to the command \texttt{ls} in Unix. Again, \texttt{.} means the current working directory, where the search will take place. \texttt{find} will list every file and directory under the current working directory.\\
+\texttt{\$ find . -type d} ~ finds things that are directories. Here it doesn't list things in any order.\\
+\texttt{\$ find . -type f} ~ finds all that are files.\\
+\texttt{\$ find . -name *.txt} ~ find files ends with \texttt{txt} but only those saved in this directory and not in the subdirectories. \\
+\texttt{\$ find. -name '*.txt'} ~ finds \texttt{txt} files in this directory and the subdirectories. So here \texttt{*} acts as a true wildcard.\\
  
 \subsection{\textbf{Shortcuts}}
+\texttt{Ctrl+Z} ~ works as esc.\\
 \texttt{Tab}	 ~	autocompletion, revisit the most recent commands use. Avoid re-typing a command, saves time.\\
 \texttt{Up\&Down keyboard arrows} ~ show previous commands typed.\\
 \texttt{spacebar} ~	forward one page.\\
@@ -203,7 +213,7 @@ In nano:\\
 
 \newpage
 \section{Python}
-\subsection{Introdution}
+
 
 Principles of Python:
 \begin{itemize}
@@ -218,10 +228,16 @@ Principles of Python:
 
 Python programming language was created by Guido van Rossum in 1991. Python's minimalist philosophy emphasizes on readability and fun to use, hence the name as a tribute to \textit{Monty Python}. Therefore, code that is hard to understand is \textit{unpythonic}.\\
 \\
- It is an open source software that uses dynamic typing. In programming languages, a type system is a set of rules that assigns a property called type to the various constructs of a computer program, like variables, expressions, functions or modules. 
+ It is an open source software that uses dynamic typing. In programming languages, a type system is a set of rules that assigns a property called type to the various constructs of a computer program, like variables, expressions, functions or modules. \\
+\\
+ Python codes can be run either via an interpreter or within a shell script (Mac). Here, \textbf{Jupyter Notebook} is used. 
+
 \subsection{\textbf{Definitions}}
 \texttt{Jupyter Notebook} ~ allows python codes to be executed.It can also become committed for version control repositories like github. Markdown can be used to generate a notebook environment for writing and developing code. \\
 \\
+\texttt{kernel} ~ is the computational engine. \\ 
+\\
+\texttt{string} ~ is data in the form of text. A string is a series of letters, numbers or symbol connected in order like a string.
 \texttt{interger} ~ 
 \texttt{float} ~
 \texttt{variables} ~ are numbers which are stored for later use. \\
@@ -244,10 +260,13 @@ In Jupyter notebook:\\
 \indent{\texttt{D+D} (pressing the key twice) deletes the current cell.\\
 
 \subsection{Commands}
-From Unix shell terminal, type:\\
-\texttt{jupyter notebook} ~ this launches the notebook.\\
+From the Terminal, type:\\
+\texttt{jupyter notebook} ~ to launch the Jupyter Notebook App.\\
 \\
-The following commands are taken place in Jupyter Notebook, where In[~] means number of the input:\\
+From Jupyter Notebook, click:\\
+ on menu \texttt{File}, then \texttt{Close and Halt} ~ to shut down a kernel.\\
+\\
+The following commands are taken place in Jupyter Notebook:\\
 \\
 In [1]: \fbox{\parbox{120}{%
 \texttt{print ("hello world")}
@@ -276,8 +295,153 @@ In [4]: \fbox{\parbox{120}{%
 }}\\
 when retyping a variable, it will get reassigned to the new value, in this case 3. \\
 
+\newpage
+\section{Markdown}
+It is a markup language with plain text formatting syntax. It is an easy-to-read, easy-to-write plain text format, contrary to markup language (Rich Text Format or HTML), which is marked up with tags and formatting instructions. It can be easily converted into HTML. \\
+\\
+Markdown is a way to style text on the web. It uses \# or * to format the document words  in bold, italic, or creating lists. 
+The document written in Markdown has the file extension of \texttt{.md}. In this internship, Markdown was used to keep notes on the daily computation progress and Python codes via Jupyter Notebook. 
+
+\subsection{Commands}
+From Jupyter Notebook drop-down menu, choose:\\
+1 - \texttt{code} ~ to begin writing plain text.\\
+2 - \texttt{Markdown} ~ to mark as Markdown.\\
+3 - click \texttt{run cell} or Ctrl+Enter ~ to convert into plain text.\\
+\\
+Headers:\\
+\texttt{\#} ~ huge size and in bold.\\
+\texttt{\#\#} ~ big size and in bold.\\
+\texttt{\#\#\#\#\#\#} ~ small size.\\
+\\
+Emphasis:\\
+\texttt{*Text will be italic*}\\
+\texttt{\_This will also be italic\_}\\
+\\
+\texttt{**Text will be bold**}\\
+\texttt{\_\_This will also be bold\_\_}\\
+\\
+\texttt{\_You **can** combine them\_}\\
+\\
+Lists using bullets\\
+\texttt{*Item 1}\\
+\texttt{*Item 2}\\
+\indent * Item 2a\\
+\indent * Item 2b\\
+\\
+Lists using numbers\\
+\texttt{1. Item 1}\\
+\texttt{1. Item 2}\\
+\texttt{1. Item 3}\\
+\indent \texttt{1. Item 3a}\\
+\indent \texttt{1. Item 3b}\\
+\\
+Spaces between letters:\\
+\texttt{\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;} \\
+\\
+
+\newpage
+\section{Emacs}
+Emacs is one of the most popular and powerful text editors. It offers much longer lists of commands than other UNIX-based text editors and the ability to extend the interface. Here, GNU/Emacs is used. All GNU (GNU is Not Unix) software has this prefix. \\
+\\
+The configuration file for emacs is \texttt{init.el}. 
+
+\subsection{Symbols}
+\texttt{C} ~ stands for \texttt{control} in the keyboard.
+
+\subsection{Commands}
+From Unix shell:\\
+1 - \texttt{\$ echo pandoc -o file.pdf inputFile}\\
+2 - \texttt{\$ evince file.pdf} ~ converts emacs file to pdf.\\
+\\
+\texttt{C-z} ~ suspend Emacs.\\
+\texttt{C-x C-c} ~ exit Emacs permanently.\\
+\texttt{C-x C-f} ~ read a file into Emacs.\\
+\texttt{C-x s} ~ save all files.\\
+\texttt{M-x} ~ to install packages. \\
+
+\newpage
+\section{Secure Shell (SSH)}
+
+SSH is to gain access to another computer/server with greater computational capacity and execute programs there. The first step is to log in to that computer, called remote login, using passwords. Then, the commands are passed to a shell running on the remote computer. That shell runs our commands and send back output to my computer. \\
+\\
+The tool we use to log in remotely is the secure shell, or SSH. By entering name of computer and password, we could connect remotely. In order to avoid typing the passwords over and over again, SSH key was created to tell the remote computer that it should always trust us. \\
+\\
+To accomplish this, a secure login must be established. This is done by a cryptographic network protocol. SSH keys come in pairs, a \textbf{public key} that gets shared with services like Github, and a \textbf{private key} that is stored in my computer. If the keys match, then access is granted. \\
+\\
+In other words, SSH uses public-key cryptography to authenticate  the remote computer and allow it to authenticate the user. This is done only ONCE. Furthermore, the cryptography behind SSH keys ensures that no one can reverse engineer my private key from the public one. Here, SSH is used to log on Github.\\
 
 
+\subsection{Commands}
+\subsubsection{How to connect remotely}
+1 - From the Terminal:\\
+\texttt{\$ ssh username@computer} ~ connects to the remote computer specified, followed by entering a password.\\
+\texttt{Ctrl-D} ~ terminates the remote login and returns to our shell. \\
+\subsubsection{How to generate SSH key}
+1 - In the Terminal:\\
+\texttt{\$ ssh-keygen -t rsa -b 4096 -C "my\_email\@address.com"} ~ this creates a new ssh key.\\
+2 - \texttt{Generating public/private rsa key pair} ~ this lines appears next. \\
+3 - \texttt{Enter a file in which to save the key (/User/Sistina/.ssh/id\_rsa.} ~ press Enter, this accepts the default file location.\\
+4 - You will see the key's randomart image. \\
+\includegraphics[scale=0.5]{randomart}\\
+\\
+5 - In the Terminal:\\
+\texttt{\$ cd .ssh/} ~ this goes into the directory of SSH.\\
+6 - In the Terminal: \\
+\texttt{\$ ls} ~ you should see id\_rsa and id\_rsa.pub as listed.\\
+7 - type:
+\texttt{\$cat *} ~ it will list the content of Private key and and the public key.\\ 
+\includegraphics[scale=0.5]{private_key}\\
+
+
+\newpage
+\section{Git}
+Git is a version control system for tracking changes in my source code history. Github is a hosting service for Git repositories. So they are not the same thing: Git the tool, Github the serivce projects that use Git. \\
+\\
+Once uploaded onto Github, the file can be edited by selected collaborators, creating a collaboration platform among multiple users. \\
+\\
+To set up GitHub, first step is to sign up for an account on GitHub.com. Then install Git on local computer. Github won't work if Git is not installed. Git uses the Terminal to access it. 
+
+\section{Definitions}
+\texttt{version control} ~ means it keeps "snapshots" of every point in time in the project's history, without being overwritten, as whenever we save in Microsoft Word file.\\
+\\
+\texttt{repo (for repository)} ~ is a directory or storage space where your projects can be. It can be local to a folder on my computer, or it can be a storage space on GitHub or another server. Files like codes, text files, image files, etc, can be stored in a repository. \\
+\\
+\texttt{commit} ~ this command gives Git its power. When I commit, I am taking a "snapshot" of my repository at that point in time.\\
+\\
+\texttt{branch} ~ this allows multiple collaborators working on a project at the same time without Git getting them confused. There is a hierarchy: the main version is called the "master"; each user "branch off" to work on their own versions. Once it's done, the sub-branches "merge" with the "master". \\
+
+
+\section{Adding a new SSH key to Github}
+1 - From the Terminal:\\
+\texttt{\$ pbcopy < ~/.ssh/id\_rsa.pub} ~ copies the content of the SSH public key to the clipboard. \\
+2 - From the github website, click "your profile photo", then click \textbf{Settings}.\\
+3 - Click \textbf{SSH and GPG keys}.\\
+4 - Click \textbf{New SSH key} or \textbf{Add SSH key}.\\
+5 - Paste the key into the "Key" field.\\
+6 - Click \textbf{Add SSH key}.\\
+
+\section{Commands}
+\subsubsection{To configure Git}
+1 - \texttt{git config --global user.name "Your Name Here"} \\
+2 - \texttt{git config --global user.email "Youraddress@mail.com}\\
+
+\subsubsection{How to add, commit and push}
+\texttt{\$ git init} ~ initializes a new Git repository. \\
+\texttt{\$ git config} ~ configures Git for the first time.\\ 
+\texttt{\$ git help} ~ shows common git commands. \\
+\texttt{\$ git status} ~ checks the status of the repo. See which files are inside it, which changes still need to be committed, which branch of the repo I am currently working on. \\
+\texttt{\$ git add} ~ brings new files to Git's attention. After adding a file, it is included in Git's "snapshots" of the repo.\\
+\texttt{git commit -m} ~ is the most important command. It takes a "snapshot" of the repo. The command \texttt{git commit -m } usually is followed by "description", meaning what changes were made. \\
+\texttt{git push} ~ this makes my commits visible online on Github. I "push" the changes up to GitHub. \\
+
+\section{Creating a repo}
+1 - Login to Github account, click on the \texttt{+} sign on the right top menu, select \texttt{New repository}.\\
+2 - Give the repo a short, memorable name plus description. \\
+3 - Select for public or private viewing. 
+4 - Click \texttt{Create repository} ~ now we have created an online space for my project to live in. \\
+
+\newpage
+\section{Exercises}
 
 \newpage
 \section{References}
@@ -288,5 +452,4 @@ https://en.wikipedia.org/w/index.php?title=Type\_system\&oldid=849096813
 \end{document}
 
 
-hello ~ ~ ~ ~ world
 \end{document}
