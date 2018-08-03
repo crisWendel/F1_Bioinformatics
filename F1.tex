@@ -9,6 +9,7 @@
 \usepackage{pifont}
 \usepackage[usestackEOL]{stackengine}
 \usepackage{lmodern}
+\usepackage{multicol}
 
 
 
@@ -308,11 +309,13 @@ From Jupyter Notebook drop-down menu, choose:\\
 2 - \texttt{Markdown} ~ to mark as Markdown.\\
 3 - click \texttt{run cell} or Ctrl+Enter ~ to convert into plain text.\\
 \\
+\begin{multicols}{2}
+
 Headers:\\
 \texttt{\#} ~ huge size and in bold.\\
 \texttt{\#\#} ~ big size and in bold.\\
 \texttt{\#\#\#\#\#\#} ~ small size.\\
-\\
+
 Emphasis:\\
 \texttt{*Text will be italic*}\\
 \texttt{\_This will also be italic\_}\\
@@ -321,7 +324,6 @@ Emphasis:\\
 \texttt{\_\_This will also be bold\_\_}\\
 \\
 \texttt{\_You **can** combine them\_}\\
-\\
 Lists using bullets\\
 \texttt{*Item 1}\\
 \texttt{*Item 2}\\
@@ -334,7 +336,8 @@ Lists using numbers\\
 \texttt{1. Item 3}\\
 \indent \texttt{1. Item 3a}\\
 \indent \texttt{1. Item 3b}\\
-\\
+\end{multicols}\\
+
 Spaces between letters:\\
 \texttt{\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;} \\
 \\
@@ -343,21 +346,33 @@ Spaces between letters:\\
 \section{Emacs}
 Emacs is one of the most popular and powerful text editors. It offers much longer lists of commands than other UNIX-based text editors and the ability to extend the interface. Here, GNU/Emacs is used. All GNU (GNU is Not Unix) software has this prefix. \\
 \\
-The configuration file for emacs is \texttt{init.el}. 
+The configuration file for emacs is \texttt{init.el}. Everytime we save a file, Emacs creates another file with the name "filename~". This tilde (~) file is the previous version of the file. It will be in the same dir. Also, Emacs auto-saves everything we type to a file with the name "#filename#". If we quit Emacs without saving, this auto-save file can be retrieved. 
 
 \subsection{Symbols}
 \texttt{C} ~ stands for \texttt{control} in the keyboard.
 
 \subsection{Commands}
-From Unix shell:\\
-1 - \texttt{\$ echo pandoc -o file.pdf inputFile}\\
-2 - \texttt{\$ evince file.pdf} ~ converts emacs file to pdf.\\
-\\
-\texttt{C-z} ~ suspend Emacs.\\
-\texttt{C-x C-c} ~ exit Emacs permanently.\\
-\texttt{C-x C-f} ~ read a file into Emacs.\\
-\texttt{C-x s} ~ save all files.\\
+\subsubsection{How to install Emacs}
+From the Terminal:\\
+1 - \texttt{\$ su -}\\
+2 - Enter your system password\\
+3 - \texttt{\$ emacs -nw} ~ this opens emacs in the Terminal, with no window. By typing \texttt{\$ emacs} only, it will launch Emacs-GUI.\\
+
+\subsubsection{How to convert Emacs into pdf file}
+1 - \texttt{\$ pandoc -o newfilename.pdf inputfile}\\
+2 - \texttt{\$ evince newfilename.pdf} \\
+
+\subsubsection{How to create file, save, copy and paste}
+\texttt{C-x C-f} ~ opens a file, asks for the file name. If cannot find it, creates the file.\\
+\texttt{C-x C-s} ~ saves the file without a prompt.\\
+\texttt{C-x s} ~ save all files with a prompt.\\
 \texttt{M-x} ~ to install packages. \\
+\texttt{C-s C-w} ~ save the file with a different name.\\
+\texttt{C-k} ~ deletes the whole line, puts it into a clipboard.\\
+\texttt{C-y} ~ pastes whatever in the clipboard at the cursor.\\
+\texttt{C-space} ~ starts marking/highlighting a region.\\
+\texttt{M-w} ~ copies this region into the clipboard.\\
+\texttt{C-x C-c} ~ quits Emacs.\\
 
 \newpage
 \section{Secure Shell (SSH)}
