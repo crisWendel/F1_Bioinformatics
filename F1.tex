@@ -522,6 +522,55 @@ Note: Suppose I make some changes at this point, and then run \texttt{\$ git sta
 
 \newpage
 \section{Exercises}
+The best way to learn bioinformatics is by solving computational problems related to molecular biology using Python. We can find such exercises in websites like ROSALIND (http://rosalind.info/problems/locations/) or in repositories of Bioinformatics scientist Dr. Konrad F\"orstner . \\
+
+\subsection{ROSALIND}
+To find the exercises, go to ROSALIND website and click \texttt{Problems} on the top menu. For example:\\
+\\
+\textbf{Problem 1: Counting DNA nucleotides} \\
+How many A, C, T, G are in this string of letters?\\
+\includegraphics[scale=0.5]{Rosa_string}\\
+\\
+Solution:\\
+print (Strings.count('A')), print (Strings.count('C')), print (Strings.count('T')), print (Strings.count('G'))\\
+\\
+Output:\\
+199\\
+210\\
+221\\
+253\\
+\\
+What if we want the output to list the numbers right after another?\\
+Solution: \\
+a = Strings.count('A')\\
+b = Strings.count('C')\\
+c = Strings.count('T')\\
+d = Strings.count('G')\\
+print (a, b, c, d)\\
+\\
+Output: 199 210 221 253\\
+\\
+\textbf{Problem 2: Computing GC content}\\
+What is the GC content in the following DNA string?\\
+\includegraphics[scale=0.5]{Rosa_GC}\\
+\\
+Solution:\\
+a = String\_s.count('G')\\
+b = String\_s.count('C')\\
+c = len(String\_s)\\
+d = a + b\\
+print ((d/c) * 100)\\
+\\
+Output:\\
+50.3553\\
+
+\subsection{Konrad's repo}
+On Dr. Konrad F\"orstner's GitHub, click the following in order:\\
+1. \texttt{Repositories} on the top menu\\
+2. \texttt{Lab\_Knowledge\_Base}\\
+3. \texttt{Python}\\
+4. \texttt{Python\_coding\_exercise.org}\\
+Here, the exercises are about analyzing GFF3 files. GFF3 stands for Generic Feature Format Version 3, which contains genomic data in plain text and information displayed in nine columns. 
 
 \newpage
 \section{References}
