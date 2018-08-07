@@ -10,28 +10,97 @@
 \usepackage[usestackEOL]{stackengine}
 \usepackage{lmodern}
 \usepackage{multicol}
+\usepackage{blindtext}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % Output font encoding for international characters
 
-
-
-\title{\huge\textbf{Master F1 Internship - Bioinformatics}}
-\author{\LARGE Christine Liao}
-\date{\parbox{\linewidth}{\centering%
-  \today \endgraf
-  \bigskip
-  \vspace{10cm}
-  \LARGE Supervisor:\ Dr. Konrad F\"orstner \endgraf
-  Core Unit Systems Medicine\endgraf
-  Julius Maximilian University - W\"urzburg}}
- 
+\usepackage{mathpazo} % Palatino font
 
 \begin{document}
 
-\maketitle
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
+	
+	\center % Centre everything on the page
+	
+	%------------------------------------------------
+	%	Headings
+	%------------------------------------------------
+	
+	\textsc{\LARGE Julius-Maximillians-Universit\"at W\"urzburg}\\[1.5cm] % Main heading such as the name of your university/college
+	
+	\textsc{\Large Master}\\[0.5cm] % Major heading such as course name
+	
+	\textsc{\large Cell and Infection Biology}\\[0.5cm] % Minor heading such as course title
+	
+	%------------------------------------------------
+	%	Title
+	%------------------------------------------------
+	
+	\HRule\\[0.4cm]
+	
+	{\huge\bfseries F1 Internship - Bioinformatics}\\[0.4cm] % Title of your document
+	
+	\HRule\\[1.5cm]
+	
+	%------------------------------------------------
+	%	Author(s)
+	%------------------------------------------------
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft}
+			\large
+			\textit{Author}\\
+			Christine \textsc{Liao} % your name
+		\end{flushleft}
+	\end{minipage}
+	~
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright}
+			\large
+			\textit{Supervisor}\\
+			Dr. Konrad  \textsc{F\"orstner} % Supervisor name
+		\end{flushright}
+	\end{minipage}
+	
+	% If you don't want a supervisor, uncomment the two lines below and comment the code above
+	%{\large\textit{Author}}\\
+	%John \textsc{Smith} % Your name
+	
+	%------------------------------------------------
+	%	Date
+	%------------------------------------------------
+	
+	\vfill\vfill\vfill % Position the date 3/4 down the remaining page
+	
+	{\large\today} % Date, change the \today to a set date if you want to be precise
+	
+	%------------------------------------------------
+	%	Logo
+	%------------------------------------------------
+	
+	%\vfill\vfill
+	%\includegraphics[width=0.2\textwidth]{placeholder.jpg}\\[1cm] % Include a department/university logo - this will require the graphicx package
+	 
+	%----------------------------------------------------------------------------------------
+	
+	\vfill % Push the date up 1/4 of the remaining page
+	
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+
 \newpage
   \pagenumbering{roman}
   \tableofcontents
 \newpage  
 \pagenumbering{arabic}
+
+
 
 
 
@@ -47,8 +116,7 @@ Unix shell is both command language and a scripting programming language. A shel
 \\
 The terminal emulator (or simply the terminal) is just the window that opens up and the shell is the program that runs behind to interpret the commands typed in the window. 
 
-\subsection{\textbf{Definitions}}
-
+\subsection{Definitions}
 
 \texttt{shell} ~ language to run other programs using command-line interface instead of GUI.\\
 \\
@@ -79,8 +147,8 @@ The terminal emulator (or simply the terminal) is just the window that opens up 
 \texttt{iteration} ~ each time the loop completes the operation is called iteration.\\  
 \\
 \texttt{grep} ~ global/regular expression/print. It is a sequence of operations. It finds and then prints lines in a text that contains the pattern that we are looking for. A pattern can be a word.\\
-\\
-\subsection{\textbf{Symbols}}
+
+\subsection{Symbols}
 \texttt{\$}~
 a prompt.\\
 \texttt{/}~	root directory when placed in front of file or folder; separator if between names.\\
@@ -91,7 +159,7 @@ a prompt.\\
 \texttt{>} ~ a prompt when writing commands in a loop. This symbol is to show that the commands are not complete yet.  In Shell, it can also mean "to redirect". \\ 
 \texttt{\$} ~ can also assign something to become a variable inside a loop. For example, \$filename means to treat the variable as a variable name and substitute its value in its place, rather than treat it as a text or as a command.\\
 \\
-\subsection{\textbf{Commands}}
+\subsection{Commands}
 \subsubsection{\small\textsl{How to navigate around shell}}
 \texttt{\$ ls} ~ lists content of a directory.\\ 
 \texttt{\$ man ls} ~ lists the manual.\\ 
@@ -198,7 +266,7 @@ In nano:\\
 \texttt{\$ find . -name *.txt} ~ find files ends with \texttt{txt} but only those saved in this directory and not in the subdirectories. \\
 \texttt{\$ find. -name '*.txt'} ~ finds \texttt{txt} files in this directory and the subdirectories. So here \texttt{*} acts as a true wildcard.\\
  
-\subsection{\textbf{Shortcuts}}
+\subsection{Shortcuts}
 \texttt{Ctrl+Z} ~ works as esc.\\
 \texttt{Tab}	 ~	autocompletion, revisit the most recent commands use. Avoid re-typing a command, saves time.\\
 \texttt{Up\&Down keyboard arrows} ~ show previous commands typed.\\
@@ -231,70 +299,172 @@ Python programming language was created by Guido van Rossum in 1991. Python's mi
 \\
  It is an open source software that uses dynamic typing. In programming languages, a type system is a set of rules that assigns a property called type to the various constructs of a computer program, like variables, expressions, functions or modules. \\
 \\
- Python codes can be run either via an interpreter or within a shell script (Mac). Here, \textbf{Jupyter Notebook} is used. 
+ Python codes can be run either via an interpreter or within a shell (Mac).
 
-\subsection{\textbf{Definitions}}
-\texttt{Jupyter Notebook} ~ allows python codes to be executed.It can also become committed for version control repositories like github. Markdown can be used to generate a notebook environment for writing and developing code. \\
+\subsection{Definitions}
+\texttt{Jupyter Notebook} ~ is an web-based interactive development environment, that allows Python codes to be executed (and also other programming languages like R).It can also become committed for version control repositories like github. Markdown can be used to generate a notebook environment for writing and developing code. \\
 \\
 \texttt{kernel} ~ is the computational engine. \\ 
 \\
-\texttt{string} ~ is data in the form of text. A string is a series of letters, numbers or symbol connected in order like a string.
-\texttt{interger} ~ 
-\texttt{float} ~
-\texttt{variables} ~ are numbers which are stored for later use. \\
+\texttt{type} ~ A \texttt{type} is a set of values and operations that can be performed on those values. There are two numeric types : 
+\begin{itemize}
+\item \texttt{int} ~ integer, like 3, 0, -2.
+\item \texttt{float} ~ an approximation to a real number, like 5.6.
+\end{itemize}\\
+\texttt{string} ~ is data in the form of text. A string is a series of letters, numbers or symbol connected in order like a string.\\
+\texttt{syntax} ~ rules that allow symbols to form valid combinations.\\
+\\
+\texttt{semantics} ~ if the symbols together make up a meaningful expression. \\
+\\
+\texttt{variables} ~ are numbers which are stored in computer memory. \\
+\\
+\texttt{argument} ~ an expression that appears between parentheses of a function call.\\
+\\
+\texttt{function call} ~ ask Python to evaluate a function.\\
+\\
+\texttt{def} ~ a keyword indicating a function definition.\\
+\\
+\texttt{parameter} ~ a variable that is within parentheses of a function defintion. Then this parameter gets a value from expressions in a function call.\\
+\\
+\texttt{return} ~ a keyword indicating the result of a function.\\
 \\
 \texttt{Boolean} ~ is a data type that can either be true or false, intended to represent the two truth values of logic. \\
 \\
 \texttt{data type} ~ can be numbers and Booleans.\\
+
+\subsection{How to install Python}
+There are two ways to run Python:
+\subsubsection{\small\textsl{IPython }}
+
+The Jupyter Notebook contains an interactive shell built with Python, which supports interactive data visualization and GUI. Easy to use and commands come in different colors. Coding spacing is automatic and it's great for learning environment.\\
 \\
-\subsection{\textbf{Symbols}}
-\texttt{In [~]} ~ means number of input, for tracking purpose.//
+1 - Download Anaconda to install Python and Jupyter. \\
+2 - From the Terminal, type:\\
+\texttt{\$ jupyter notebook} ~ to launch the Jupyter Notebook.\\
+3 - Once in Jupyter Home, click:\\
+\texttt{New} on upper right Menu, and select \texttt{Kernel, Python 3} to start a new Python file.
+4 - After working on a file, click on the menu: \\
+A\texttt{File}, then \texttt{Close and Halt} ~ to shut down the kernel.
 
+\paragraph{\textbf{How to Python}}\\
+1 - \texttt{In [~]} ~ this is a Cell, where computation takes places (can be code or text). The default format is code and it can be easily switched to text (eg. Markdown) by clicking the menu bar of Code and chose Markdown. Enter a code in the Input line.\\
+2 - \texttt{Ctrl-Enter} \\
+3 - \texttt{Out [~]} ~ result is computed in the Output line. And a new input line is added below. 
 
-\subsection{\textbf{Shortcuts}}
+\paragraph{\textbf{Shortcuts}}\\
 In Jupyter notebook:\\
 \indent{\texttt{A} ~ inserts a new cell above the current cell.}\\ 
 \indent{\texttt{B} ~ inserts a new cell below.}\\
 \indent{\texttt{Ctrl-Enter} ~ runs the cells.}\\
 \indent{\texttt{M} ~ changes the current cell to Markdown.}\\
-\indent{\texttt{Y} changes Markdown back to code mode.\\
-\indent{\texttt{D+D} (pressing the key twice) deletes the current cell.\\
+\indent{\texttt{Y} ~ changes Markdown back to code mode.\\
+\indent{\texttt{D+D} (pressing the key twice) ~ deletes the current cell.\\
+\indent{\texttt{Tab} ~ click tab while completing a code, Jupyter will autocomplete it or\\
+\indent \indent ~ ~ suggest codes. 
+
+\subsubsection{\small\textsl{Python}}
+This uses command-line interface. \\
+\\
+1 - Download Python and Active TCL (Mac) from https://www.python.org.\\
+2 - Run Python either from the Terminal by typing \texttt{\$ python} or run IDLE, the Python visualizer that is a friendlier programming environment, which comes with Python. \\
+
+\paragraph{How to Python}
+The prompt for Python is \texttt{>>>}. Once this appears on the Terminal, we are in Python programming environment. \\
 
 \subsection{Commands}
-From the Terminal, type:\\
-\texttt{jupyter notebook} ~ to launch the Jupyter Notebook App.\\
+
+\subsubsection{\small\textsl{Math}}
+\begin{table}[ht]
+\begin{tabular}{c c c c}
+Operators & Operation & Examples & Output \\
+\hline
++ & plus & 3 + 2 & 5 \\
+- & minus & 3 - 2 & 1 \\
+\** & multiplication & 3 * 2 & 6 \\
+/ & division & 3 /2 & 1.5 \\
+\*** & exponent & 3 ** 2 & 9 \\
+// & integer division  & 3 // 2 & 1 \\
+\% & remainder & 3 \% 2 & 1 \\
+\end{tabular}
+\end{table}
+
+\subsubsection{\small\textsl{Order of operation}}
+When multiple operators are combined in a single expression, the operations are evaluated in a specific order.
+
+\begin{table}[ht]
+\begin{tabular}{c c}
+Operators & Order\\
+\hline
+*** & first\\
+- (negation) \\
+**, /, //, \% \\
++, - & last \\
+\end{tabular}
+\end{table}
+
+\subsubsection{\small\textsl{Variables}}
+We can assign numbers to a variable, to form a general assignment statement:\\
 \\
-From Jupyter Notebook, click:\\
- on menu \texttt{File}, then \texttt{Close and Halt} ~ to shut down a kernel.\\
+\texttt{variable} = \texttt{expression}\\
 \\
-The following commands are taken place in Jupyter Notebook:\\
+For example:\\
+\texttt{>>>} base = 20\\
+\texttt{>>>} base * 2\\
+40\\
 \\
-In [1]: \fbox{\parbox{120}{%
-\texttt{print ("hello world")}
-}}\\
-prints \texttt{hello world} as the output.\\
+Rules for variable names in Python:
+\begin{itemize}
+\item Name must start with a letter or \_
+\item Name must contain only letters, digits, and \_
+\end{itemize}
+
+Rules for executing an assignment statement:\\
+1. Evaluate expression on the right side of \=, to produce a value. This value has a memory address.\\
+2. Store the memory address of the value in the variable on the left side of \=. \\
 \\
-In [2]: \fbox{\parbox{120}{%
-\texttt{my\_variable=10}\\
-\texttt{print (my\_variable)}
-}}\\
-output will be 10. Variables are numbers which are stored for later use.\\
+For example: \\
+\texttt{>>> x = 2}\\
+\texttt{>>> y = x + 1}\\
+\texttt{>>> x = 10}\\
+If we run the code, x has been changed to value 10, but \texttt{y = 3}, where x is still 2. \\
+\subsubsection{\small\textsl{Buil-in functions}}
+This is a function call, where \texttt{max} is the function and arguments are 4 and 2.\\
+\texttt{>>> max(4,2)}\\
+4\\
 \\
-In [3]: \fbox{\parbox{120}{% 
-\texttt{my\_int = 7}\\
-\texttt{my\_float = 1.23}\\
-\texttt{my\_bool = True}\\
+\texttt{>>> dir(\_\_buildins\_\_)} ~ we get a long list of build-in functions available in Python.\\
 \\
-\texttt{print (my\_int)}\\
-\texttt{print (my\_float)}\\
-\texttt{print (my\_bool)}
-}}\\
-Output: 7, 1.23, True.\\ 
+\texttt{>>> help(abs)} ~ describes what this build-in function does. For abs it will return the absolute value of the argument.\\
 \\
-In [4]: \fbox{\parbox{120}{%
-\texttt{my\_int = 3}
-}}\\
-when retyping a variable, it will get reassigned to the new value, in this case 3. \\
+\texttt{>>> help(pow)} ~ shows that this is the same as x**y.\\
+\texttt{>>> pow(2, 5)}\\
+32\\
+
+\subsubsection{\small\textsl{Defining a function}}
+We can also define our own functions using \texttt{def}.\\
+Here, \textcolor{blue}{f} is the name of the function, \texttt{x} is the parameter, followed by colon, as follows:\\
+\texttt{def} \textit{function\_name(parameters)}: \\
+\indent \textit{body}\\
+\\
+Example 1:\\
+\texttt{>>> \textcolor{orange}{def} \textcolor{blue}{f}(x):}\\
+\indent \indent \indent \texttt{\textcolor{orange}{return} x ** 2}\\
+If we enter x = 3:\\
+\texttt{>>> f(3)} \\
+9 \\
+\\
+Example 2: calculate area\\
+\texttt{>>> def area(base, height):}\\
+\indent \indent \indent return base * height / 2\\
+\\
+\texttt{>>> area (3, 4)} ~ if we enter these values for base and height.\\
+6\\
+\\
+Click \texttt{restart shell} in IDLE, and Python will erase what we have defined so far for area.\\
+
+\subsubsection{\small\textsl{How to save Python file}}
+From IDLE, click \texttt{New File}, paste the area function created, and save with a \texttt{.py} file.\\
+In Jupyter Notebook
 
 \newpage
 \section{Markdown}
@@ -352,17 +522,17 @@ The configuration file for emacs is \texttt{init.el}. Everytime we save a file, 
 \texttt{C} ~ stands for \texttt{control} in the keyboard.
 
 \subsection{Commands}
-\subsubsection{How to install Emacs}
+\subsubsection{\small\textsl{How to install Emacs }}
 From the Terminal:\\
 1 - \texttt{\$ su -}\\
 2 - Enter your system password\\
 3 - \texttt{\$ emacs -nw} ~ this opens emacs in the Terminal, with no window. By typing \texttt{\$ emacs} only, it will launch Emacs-GUI.\\
 
-\subsubsection{How to convert Emacs into pdf file}
+\subsubsection{\small\textsl{How to convert Emacs into pdf file}}
 1 - \texttt{\$ pandoc -o newfilename.pdf inputfile}\\
 2 - \texttt{\$ evince newfilename.pdf} \\
 
-\subsubsection{How to create file, save, copy and paste}
+\subsubsection{\small\textsl{How to create file, save, copy and paste}}
 \texttt{C-x C-f} ~ opens a file, asks for the file name. If cannot find it, creates the file.\\
 \texttt{C-x C-s} ~ saves the file without a prompt.\\
 \texttt{C-x s} ~ save all files with a prompt.\\
@@ -387,11 +557,11 @@ In other words, SSH uses public-key cryptography to authenticate  the remote com
 
 
 \subsection{Commands}
-\subsubsection{How to connect remotely}
+\subsubsection{\small\textsl{How to connect remotely}}
 1 - From the Terminal:\\
 \texttt{\$ ssh username@computer} ~ connects to the remote computer specified, followed by entering a password.\\
 \texttt{Ctrl-D} ~ terminates the remote login and returns to our shell. \\
-\subsubsection{How to generate SSH key}
+\subsubsection{\small\textsl{How to generate SSH key}}
 1 - In the Terminal:\\
 \texttt{\$ ssh-keygen -t rsa -b 4096 -C "my\_email\@address.com"} ~ this creates a new ssh key.\\
 2 - \texttt{Generating public/private rsa key pair} ~ this lines appears next. \\
@@ -457,7 +627,6 @@ Once
 \\
 \texttt{branch} ~ this allows multiple collaborators working on a project at the same time without Git getting them confused. There is a hierarchy: the main version is called the "master"; each user "branch off" to work on their own versions. Once it's done, the sub-branches "merge" with the "master". \\
 
-
 \subsection{Adding a new SSH key to Github}
 This step allows a secure and hussle-free authentication process whenever we connect to Github. 
 1 - From the Terminal:\\
@@ -469,7 +638,7 @@ This step allows a secure and hussle-free authentication process whenever we con
 6 - Click \textbf{Add SSH key}.\\
 
 \subsection{Commands}
-\subsubsection{How to configure Git}
+\subsubsection{\small\textsl{How to configure Git}}
 
 1 - Install Git (Xcode Command Line Tool for Mac). \\
 From the Terminal:\\
@@ -477,7 +646,7 @@ From the Terminal:\\
 3 - \texttt{git config --global user.name "Your Name Here"} \\
 4 - \texttt{git config --global user.email "YourAddress@mail.com}\\
 
-\subsubsection{How to create and save a repo}
+\subsubsection{\small\textsl{How to create and save a repo}}
 
 1 - Login to Github account, click on the \texttt{+} sign on the right top menu, select \texttt{New repository}.\\
 2 - Give the repo a short, memorable name plus description. \\
@@ -504,7 +673,7 @@ From the Terminal:\\
 \\
 Now the file F1.tex is stored in Github.
 
-\subsubsection{Viewing staged and unstaged changes}
+\subsubsection{\small\textsl{Viewing staged and unstaged changes}}
 \texttt{\$ git status} ~ tells us if the file is committed or not. For example:\\
 \includegraphics[scale=0.5]{git_status}\\
 "Changes not staged for commit" means that this file has been modified in the working directory but not yet staged. (To stage it, we need to run \texttt{\$ git add}, which begins to track new files, to stage files. \\
@@ -515,7 +684,7 @@ Note: Suppose I make some changes at this point, and then run \texttt{\$ git sta
 \\
 \texttt{\$ git log} ~ lists the author that 
 
-\subsubsection{others}
+\subsubsection{\small\textsl{others}}
 \texttt{\$ git help} ~ shows common git commands. \\
 \texttt{\$ git rm} ~ removes a file from Git by removing it from the staging area, and then commit. It also removes the file from the working directory, so it doesn't appear as an untracked file. 
 
