@@ -12,9 +12,9 @@
 \usepackage{multicol}
 \usepackage{blindtext}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc} % Output font encoding for international characters
 
 \usepackage{mathpazo} % Palatino font
+
 
 \begin{document}
 
@@ -311,7 +311,7 @@ Python programming language was created by Guido van Rossum in 1991. Python's mi
 \item \texttt{int} ~ integer, like 3, 0, -2.
 \item \texttt{float} ~ an approximation to a real number, like 5.6.
 \end{itemize}\\
-\texttt{string} ~ is data in the form of text. A string is a series of letters, numbers or symbol connected in order like a string.\\
+\texttt{string} ~ is data in the form of text. A string is a series of letters, numbers or symbol connected in order like a string. A sequence of characters. Starts and end with ' or ''. Strings are values. \\
 \texttt{syntax} ~ rules that allow symbols to form valid combinations.\\
 \\
 \texttt{semantics} ~ if the symbols together make up a meaningful expression. \\
@@ -336,15 +336,15 @@ Python programming language was created by Guido van Rossum in 1991. Python's mi
 There are two ways to run Python:
 \subsubsection{\small\textsl{IPython }}
 
-The Jupyter Notebook contains an interactive shell built with Python, which supports interactive data visualization and GUI. Easy to use and commands come in different colors. Coding spacing is automatic and it's great for learning environment.\\
+The Jupyter Notebook contains an interactive shell built with Python (iPython), which supports interactive data visualization and GUI. Easy to use and commands come in different colors. Coding spacing is automatic and it's a great learning environment.\\
 \\
 1 - Download Anaconda to install Python and Jupyter. \\
 2 - From the Terminal, type:\\
 \texttt{\$ jupyter notebook} ~ to launch the Jupyter Notebook.\\
 3 - Once in Jupyter Home, click:\\
-\texttt{New} on upper right Menu, and select \texttt{Kernel, Python 3} to start a new Python file.
+\texttt{New} on upper right Menu, and select \texttt{Kernel, Python 3} to start a new Python file.\\
 4 - After working on a file, click on the menu: \\
-A\texttt{File}, then \texttt{Close and Halt} ~ to shut down the kernel.
+\texttt{File}, \texttt{Close and Halt} ~ to shut down the kernel.
 
 \paragraph{\textbf{How to Python}}\\
 1 - \texttt{In [~]} ~ this is a Cell, where computation takes places (can be code or text). The default format is code and it can be easily switched to text (eg. Markdown) by clicking the menu bar of Code and chose Markdown. Enter a code in the Input line.\\
@@ -395,7 +395,7 @@ When multiple operators are combined in a single expression, the operations are 
 \begin{tabular}{c c}
 Operators & Order\\
 \hline
-*** & first\\
+** & first\\
 - (negation) \\
 **, /, //, \% \\
 +, - & last \\
@@ -407,30 +407,31 @@ We can assign numbers to a variable, to form a general assignment statement:\\
 \\
 \texttt{variable} = \texttt{expression}\\
 \\
-For example:\\
-\texttt{>>>} base = 20\\
-\texttt{>>>} base * 2\\
-40\\
+\texttt{>>> base = 20} \\
+\texttt{>>> base * 2}\\
+\texttt{40} ~ This is the output.\\
 \\
 Rules for variable names in Python:
 \begin{itemize}
-\item Name must start with a letter or \_
-\item Name must contain only letters, digits, and \_
+\item Name must start with a letter or \_.
+\item Name must contain only letters, digits, and \_.
 \end{itemize}
-
-Rules for executing an assignment statement:\\
-1. Evaluate expression on the right side of \=, to produce a value. This value has a memory address.\\
-2. Store the memory address of the value in the variable on the left side of \=. \\
 \\
-For example: \\
+Rules for executing an assignment statement:
+\begin{itemize}
+\item Evaluate expression on the right side of =, to produce a value. This value has a memory address.
+\item Store the memory address of the value in the variable on the left side of =.
+\end{itemize}
+\\
 \texttt{>>> x = 2}\\
 \texttt{>>> y = x + 1}\\
 \texttt{>>> x = 10}\\
-If we run the code, x has been changed to value 10, but \texttt{y = 3}, where x is still 2. \\
+If we run the code, x has been changed to value 10, but \texttt{y = 3}, where x is still 2. 
+
 \subsubsection{\small\textsl{Buil-in functions}}
 This is a function call, where \texttt{max} is the function and arguments are 4 and 2.\\
 \texttt{>>> max(4,2)}\\
-4\\
+\texttt{4}\\
 \\
 \texttt{>>> dir(\_\_buildins\_\_)} ~ we get a long list of build-in functions available in Python.\\
 \\
@@ -441,30 +442,148 @@ This is a function call, where \texttt{max} is the function and arguments are 4 
 32\\
 
 \subsubsection{\small\textsl{Defining a function}}
-We can also define our own functions using \texttt{def}.\\
+\paragraph{Function \texttt{def}} ~ allows us to define our own functions.\\
 Here, \textcolor{blue}{f} is the name of the function, \texttt{x} is the parameter, followed by colon, as follows:\\
 \texttt{def} \textit{function\_name(parameters)}: \\
 \indent \textit{body}\\
 \\
-Example 1:\\
 \texttt{>>> \textcolor{orange}{def} \textcolor{blue}{f}(x):}\\
 \indent \indent \indent \texttt{\textcolor{orange}{return} x ** 2}\\
 If we enter x = 3:\\
 \texttt{>>> f(3)} \\
 9 \\
 \\
-Example 2: calculate area\\
+Example: calculate area\\
 \texttt{>>> def area(base, height):}\\
 \indent \indent \indent return base * height / 2\\
 \\
 \texttt{>>> area (3, 4)} ~ if we enter these values for base and height.\\
 6\\
+\paragraph{Docstrings and Function \texttt{help}} ~ Built-in function \texttt{help} displays the docstring from a function we defined. \\
+\texttt{>>> def area(base, height):}\\
+\indent \indent \indent """(number, number) -\textgreater  number \\
+\indent \indent \indent Return the area of a triangle with\\ \indent \indent \indent dimensions base and height.\\
+\indent \indent \indent """ \\
 \\
-Click \texttt{restart shell} in IDLE, and Python will erase what we have defined so far for area.\\
+\texttt{>>> help(area)}\\
+area(base, height)\\
+\indent (number, number) -\textgreater  number\\
+\indent Return the area of a triangle with dimensions base and height.\\
 
-\subsubsection{\small\textsl{How to save Python file}}
-From IDLE, click \texttt{New File}, paste the area function created, and save with a \texttt{.py} file.\\
-In Jupyter Notebook
+
+\subsubsection{\small\textsl{String type}}
+Strings can be values when expressed in quotations:\\
+\\
+\texttt{>>> sunny\_greeting = 'What a nice day!'}\\
+\texttt{>>> sunny\_greeting}\\
+\texttt{'What a nice day!'}\\
+\\
+\texttt{>>> cloudy\_greeting = "Wow, you'r dripping wet."}\\
+Use double quotations to avoid this message:
+\textcolor{red}{SyntaxError: invalid syntax}\\
+\\
+Strings can be concatenated using +, multiplied using *, or combined in a different order using parenthesis.\\
+\\
+\texttt{>>> 'May' + 'flower'}\\
+'Mayflower'\\
+\\
+\texttt{>>> puzzle\_start = 'I saw May'}\\
+\texttt{>>> noun = 'flower'}\\
+\texttt{>>> punctuation = '!'}\\
+\texttt{>>> puzzle\_start + noun + punctuation}\\
+'I saw Mayflower!' \\
+\\
+\texttt{>>> 'ha' * 5}\\
+'hahahahaha'\\
+\\
+\texttt{>>> 'hi' + 'ha' * 5}\\
+'hihahahahaha'\\
+\\
+\texttt{>>> ('hi' + 'ha') * 5}\\
+'hihahihahihahihahiha'\\
+
+\subsubsection{\small\textsl{Input and output}}
+\paragraph{Function \texttt{print}} ~ prints a sequence of arguments for a user to read. It puts spaces between its arguments. Note that quotations are not part of the string\\
+\\
+\texttt{>>> def square\_print(num):}\\
+\indent \indent print(num ** 2)\\
+\texttt{>>> result = square\_print(4)}\\
+\texttt{16}.\\
+\\
+\texttt{>>> def square\_return(num):}\\
+\indent \indent return num ** 2 \\
+\texttt{>>> result = square\_return(4)}\\
+Here there is no output. But if we added: \\
+\texttt{>>> new\_result = result + 1}\\
+\texttt{17}\\
+\\
+\texttt{>>> print("Strings are fun!", "Isn't it?")}\\
+Strings are fun! Don't you think? 
+
+\paragraph{Function \texttt{input}} ~ get a string from the user. It prompts user to enter an answer.\\
+\\
+\texttt{>>> input("What is your name?")}\\
+What is your name? \textcolor{brown}{April}\\
+'April'\\
+\texttt{>>> name = input("What is your name?")}\\
+\texttt{>>> name}\\
+'April'\\
+\\
+\texttt{>>> location = input("What is your location?")}\\
+What is your location? \textcolor{brown}{Toronto}\\
+\\
+\texttt{>>> print(name, "lives in", location)}\\
+April lives in Toronto\\
+\\
+So what we entered for \texttt{name} or \texttt{location} is referred to as type \texttt{str}. 
+
+\subsubsection{Escape sequences}
+
+\setminus\texttt{n} ~ ~ ~  newline\\
+\setminus \texttt{t} ~ ~ ~ TAB\\
+\setminus \setminus ~ ~ ~  backslash (\setminus)\\
+\setminus \texttt{'} ~ ~ ~ single quote (')\\
+\setminus \texttt{"} ~ ~ ~ double quote (")\\
+
+\subsubsection{Function design}
+A function has five parts:\\
+1. \textbf{Examples}: What should the function do? Type some example calls. Then pick a name (often a verb).\\
+2. \textbf{Type of contract}: What are the parameters types? What type of value is returned?\\
+3. \textbf{Header}: Pick a meaningful parameter name.\\
+4. \textbf{Description}: Describe every parameter and the return value.\\
+5. \textbf{Body}: Write the body of the function.\\ 
+\\
+Example: We want to convert Fahrenheit to Celsius.\\
+1. Examples:\\
+
+\\
+2. Type Contract:\\
+(number) - \textgreater  number\\
+\\
+3. Header:\\
+\texttt{def convert\_to\_celsius(fahrenheit):}\\
+\\
+4. Description:\\
+\texttt{Return the number of Celsius degrees equivalent to Fahrenheit degrees.}\\
+\\
+5. Body:\\
+\texttt{return (fahrenheit - 32) * 5 / 9}\\
+\\
+Putting all together in a python shell script:\\
+\\
+\texttt{def convert\_to\_celsius(fahrenheit):}\\
+\indent \indent \texttt{''' (number) - \textgreater  number }\\
+\\
+\indent \indent \texttt{Return the number of Celsius degrees equivalent to Fahrenheit \\
+\indent \indent degrees.}\\
+\\
+\indent \indent \texttt{>>> convert\_to\_celsius(32)}\\
+\indent \indent \texttt{0}\\
+\indent \indent \texttt{>>> convert\_to\_celsius(212}\\
+\indent \indent \texttt{100}\\
+\indent \indent \texttt{'''}\\
+\\
+\indent \indent \texttt{return (fahrenheit - 32) * 5 / 9}
 
 \newpage
 \section{Markdown}
@@ -696,7 +815,7 @@ The best way to learn bioinformatics is by solving computational problems relate
 \subsection{ROSALIND}
 To find the exercises, go to ROSALIND website and click \texttt{Problems} on the top menu. For example:\\
 \\
-\textbf{Problem 1: Counting DNA nucleotides} \\
+\textbf{Exercise: Counting DNA nucleotides} \\
 How many A, C, T, G are in this string of letters?\\
 \includegraphics[scale=0.5]{Rosa_string}\\
 \\
@@ -719,7 +838,7 @@ print (a, b, c, d)\\
 \\
 Output: 199 210 221 253\\
 \\
-\textbf{Problem 2: Computing GC content}\\
+\textbf{Exercise: Computing GC content}\\
 What is the GC content in the following DNA string?\\
 \includegraphics[scale=0.5]{Rosa_GC}\\
 \\
@@ -739,7 +858,51 @@ On Dr. Konrad F\"orstner's GitHub, click the following in order:\\
 2. \texttt{Lab\_Knowledge\_Base}\\
 3. \texttt{Python}\\
 4. \texttt{Python\_coding\_exercise.org}\\
-Here, the exercises are about analyzing GFF3 files. GFF3 stands for Generic Feature Format Version 3, which contains genomic data in plain text and information displayed in nine columns. 
+\\
+Here, the exercises are about analyzing gff3 files. Gff3 (\textit{generic feature format version 3, gene-finding format} is a file to annotate gene and features of DNA, RNA and protein sequences. Format: in plain text. Advantages: data are separated by tabs, and if there were in an excel sheet (in nine columns). Download the gff file to do the exercises.\\ 
+\\
+\\
+\textbf{Exercise: What is in the second column of the gff file?}\\
+\\
+Solution:\\
+\texttt{for line in open (enter the gff file):}\\
+\\
+\indent ~ \texttt{sep\_line = line.split()}\\
+\indent ~ \texttt{print(sep\_line[1])}\\
+\\
+\textbf{Exercise: Count the word "genes" in gff file}\\
+\\
+Solution:\\
+\texttt{for line in open (enter the gff file):}\\
+\indent ~ \texttt{if line.startswith("\#"):}\\
+\indent \indent \texttt{continue}\\
+\indent \indent \textit{\# print(line)}\\
+\indent ~ \texttt{sep\_line = line.split()}\\
+\indent ~ \texttt{column2 = sep\_line[2]}\\
+\indent \indent \textit{\# print(sep\_line[2])}\\
+\indent ~ \texttt{if column2.startswith("gene"):}\\
+\indent \indent \texttt{print(column2.count("gene"))}\\
+\\
+\\
+\textbf{Exercise: Count the occurrance of all features (genes, CDS, rRNA, tRNA) in the gff file, using libraries }\\
+\\
+Solution 1:\\
+\texttt{from collections import defaultdict}\\
+\texttt{gffdict = defaultdict(int)}\\
+\texttt{gff\_file = open(enter gff file name)}\\
+\texttt{for line in gff\_file:}\\
+\indent ~ \texttt{if line.startswith("\#"):}\\
+\indent \indent \texttt{continue}\\
+\indent ~ \texttt{sep\_line = line.split(" t")} \\
+\indent ~ \texttt{gff\_key = sep\_line[2]}\\
+\indent ~ \texttt{gffdict[gff\_key] = gffdict[gff\_key] + 1}\\
+\texttt{gffdict} \\
+\\
+Output:\\
+\includegraphics[scale=0.5]{defaultdict}\\
+\\
+Solution 2:\\
+
 
 \newpage
 \section{References}
